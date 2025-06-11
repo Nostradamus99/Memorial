@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Memorial</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;600&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+  <header class="header">
+    <div class="nav-container">
+     <a href= "index.html"><h1 class="logo">Memorial</h1></a>
+       <div class="nav-actions">
+            <a href="memoriaux.html">Mémoriaux</a>
+            <a href="auth.html">S'inscrire/Connexion</a>
+            <a href="profil.html">Profil</a>
+            <a href="creer-memorial.html" class="btn-primary">Créer</a>
+       </div>
+    </div>
+  </header>
+
+  <main class="memoriaux-page">
+    <!-- Zone de recherche -->
+    <section class="search-section">
+        <form class="search-form" method="get">
+            <input type="search" 
+                   name="q" 
+                   placeholder="Rechercher un mémorial..." 
+                   class="search-input">
+            <button type="submit" class="search-btn" aria-label="Rechercher">
+                🔍
+            </button>
+            <button type="button" 
+                    class="advanced-search-btn" 
+                    onclick="openModal()">
+                Recherche avancée
+            </button>
+        </form>
+    </section>
+
+    <!-- Liste des mémoriaux -->
+    <section class="memoriaux-grid">
+        <article class="memorial-card">
+            <figure class="memorial-photo">
+                <img src="photos/profil1.jpg" alt="Photo de Jean Dupont">
+                <figcaption>Jean Dupont</figcaption>
+            </figure>
+            <div class="memorial-info">
+                <h3>Jean Dupont</h3>
+                <p class="memorial-dates">1945 - 2023</p>
+                <p class="memorial-bio">Père aimant et grand-père dévoué...</p>
+                <a href="profil.html?id=1" class="memorial-link">Voir le mémorial</a>
+            </div>
+        </article>
+    </section>
+</main>
+
+<!-- Modale de recherche avancée -->
+<dialog id="search-modal" class="modal">
+    <div class="modal-content">
+        <header class="modal-header">
+            <h2>Recherche avancée</h2>
+            <button class="modal-close" onclick="closeModal()">×</button>
+        </header>
+        <form class="advanced-search-form" method="get">
+            <div class="form-group">
+                <label for="nom">Nom du défunt</label>
+                <input type="text" id="nom" name="nom">
+            </div>
+            <!-- Autres champs... -->
+            <button type="submit">Rechercher</button>
+        </form>
+    </div>
+</dialog>
+
+  <!-- PIED DE PAGE (ton code existant) -->
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Memorial</h3>
+                <p>Préserver la mémoire, honorer les vies.</p>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="memoriaux.html">Mémoriaux</a></li>
+                    <li><a href="auth.html">Connexion</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Aide</h4>
+                <ul>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="legal.html">Mentions légales</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Suivez-nous</h4>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook">📘</a>
+                    <a href="#" aria-label="Twitter">🐦</a>
+                    <a href="#" aria-label="Instagram">📷</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 Memorial. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

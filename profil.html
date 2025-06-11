@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Memorial</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;600&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+  <header class="header">
+    <div class="nav-container">
+     <a href= "index.html"><h1 class="logo">Memorial</h1></a>
+       <div class="nav-actions">
+            <a href="memoriaux.html">Mémoriaux</a>
+            <a href="auth.html">S'inscrire/Connexion</a>
+            <a href="profil.html">Profil</a>
+            <a href="creer-memorial.html" class="btn-primary">Créer</a>
+       </div>
+    </div>
+  </header>
+  
+<body>
+    <!-- EN-TÊTE (ton code existant) -->
+    <header class="main-header">
+        <nav class="navbar">
+            <div class="nav-brand">
+                <h1><a href="index.html">Memorial</a></h1>
+            </div>
+            
+            <ul class="nav-menu">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="memoriaux.html">Mémoriaux</a></li>
+                <li class="nav-user">
+                    <div class="user-dropdown">
+                        <button class="dropdown-toggle" type="button">
+                            👤 Jean Dupont ▼
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a href="profil.html" class="active">Mon Profil</a></li>
+                            <li><a href="mes-memoriaux.html">Mes Mémoriaux</a></li>
+                            <li><a href="creer-memorial.html">Créer un Mémorial</a></li>
+                            <li><a href="parametres.html">Paramètres</a></li>
+                            <li><a href="index.html">Déconnexion</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- CONTENU PRINCIPAL -->
+    <main class="profil-page">
+        <!-- Section photo de profil -->
+        <section class="profil-header">
+            <div class="avatar-section">
+                <div class="avatar-container">
+                    <img src="assets/images/default-avatar.png" 
+                         alt="Photo de profil de Jean Dupont" 
+                         class="user-avatar" 
+                         id="current-avatar">
+                    <div class="avatar-overlay">
+                        <span class="camera-icon">📷</span>
+                    </div>
+                </div>
+                
+                <form class="avatar-form" method="post" enctype="multipart/form-data">
+                    <input type="file" 
+                           id="photo-upload" 
+                           name="avatar" 
+                           accept="image/jpeg,image/png,image/gif" 
+                           hidden>
+                    <label for="photo-upload" class="upload-btn">
+                        📷 Changer la photo
+                    </label>
+                    <p class="upload-help">
+                        JPG, PNG ou GIF • Max 2MB
+                    </p>
+                </form>
+            </div>
+            
+            <div class="user-welcome">
+                <h1>Mon Profil</h1>
+                <p class="user-status">
+                    Membre depuis <time datetime="2024-01">janvier 2024</time>
+                </p>
+                <div class="profile-stats">
+                    <span class="stat">
+                        <strong>3</strong> mémoriaux créés
+                    </span>
+                    <span class="stat">
+                        <strong>15</strong> visites ce mois
+                    </span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Actions rapides -->
+        <section class="quick-actions">
+            <div class="action-cards">
+                <a href="creer-memorial.html" class="action-card primary">
+                    <div class="card-icon">➕</div>
+                    <h3>Créer un mémorial</h3>
+                    <p>Honorer la mémoire d'un proche</p>
+                </a>
+                
+                <a href="mes-memoriaux.html" class="action-card">
+                    <div class="card-icon">📚</div>
+                    <h3>Mes mémoriaux</h3>
+                    <p>Gérer mes créations (3)</p>
+                </a>
+                
+                <a href="memoriaux.html" class="action-card">
+                    <div class="card-icon">🔍</div>
+                    <h3>Parcourir</h3>
+                    <p>Découvrir d'autres mémoriaux</p>
+                </a>
+            </div>
+        </section>
+
+        <!-- Informations du profil -->
+        <section class="profil-content">
+            <div class="content-grid">
+                <!-- Informations personnelles -->
+                <article class="info-card">
+                    <header class="card-header">
+                        <h2>
+                            <span class="card-icon">👤</span>
+                            Informations personnelles
+                        </h2>
+                        <button type="button" class="edit-toggle" data-target="personal-form">
+                            <span class="edit-icon">✏️</span>
+                            <span class="edit-text">Modifier</span>
+                        </button>
+                    </header>
+                    
+                    <!-- Mode lecture -->
+                    <div class="info-display" id="personal-display">
+                        <dl class="info-list">
+                            <div class="info-item">
+                                <dt>Nom complet</dt>
+                                <dd>Jean Dupont</dd>
+                            </div>
+                            <div class="info-item">
+                                <dt>Email</dt>
+                                <dd>jean.dupont@email.com</dd>
+                            </div>
+                            <div class="info-item">
+                                <dt>Téléphone</dt>
+                                <dd>06 12 34 56 78</dd>
+                            </div>
+                            <div class="info-item">
+                                <dt>Date de naissance</dt>
+                                <dd>15 mars 1985</dd>
+                            </div>
+                            <div class="info-item">
+                                <dt>Adresse</dt>
+                                <dd>123 Rue de la Paix<br>75001 Paris, France</dd>
+                            </div>
+                        </dl>
+                    </div>
+                    
+                    <!-- Mode édition -->
+                    <form class="info-form" id="personal-form" method="post" hidden>
+                        <fieldset class="form-fieldset">
+                            <legend class="sr-only">Informations personnelles</legend>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="prenom">Prénom *</label>
+                                    <input type="text" 
+                                           id="prenom" 
+                                           name="prenom" 
+                                           value="Jean" 
+                                           required 
+                                           minlength="2"
+                                           class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="nom">Nom *</label>
+                                    <input type="text" 
+                                           id="nom" 
+                                           name="nom" 
+                                           value="Dupont" 
+                                           required 
+                                           minlength="2"
+                                           class="form-control">
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Adresse email *</label>
+                                <input type="email" 
+                                       id="email" 
+                                       name="email" 
+                                       value="jean.dupont@email.com" 
+                                       required
+                                       class="form-control">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="telephone">Téléphone</label>
+                                <input type="tel" 
+                                       id="telephone" 
+                                       name="telephone" 
+                                       value="0612345678" 
+                                       pattern="[0-9]{10}"
+                                       class="form-control">
+                                <small class="form-help">Format: 0123456789</small>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="date_naissance">Date de naissance</label>
+                                <input type="date" 
+                                       id="date_naissance" 
+                                       name="date_naissance" 
+                                       value="1985-03-15"
+                                       max="2006-01-01"
+                                       class="form-control">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="adresse">Adresse complète</label>
+                                <textarea id="adresse" 
+                                        name="adresse" 
+                                        rows="3" 
+                                        class="form-control"
+                                        placeholder="Numéro, rue, code postal, ville">123 Rue de la Paix
+75001 Paris, France</textarea>
+                            </div>
+                        </fieldset>
+                        
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary">
+                                💾 Sauvegarder les modifications
+                            </button>
+                            <button type="button" class="btn btn-secondary cancel-edit">
+                                ❌ Annuler
+                            </button>
+                        </div>
+                    </form>
+                </article>
+
+                <!-- Sécurité du compte -->
+                <article class="info-card">
+                    <header class="card-header">
+                        <h2>
+                            <span class="card-icon">🔐</span>
+                            Sécurité
+                        </h2>
+                    </header>
+                    
+                    <div class="security-info">
+                        <div class="security-item">
+                            <div class="security-detail">
+                                <h3>Mot de passe</h3>
+                                <p class="text-muted">
+                                    Dernière modification: 
+                                    <time datetime="2024-01-15">15 janvier 2024</time>
+                                </p>
+                            </div>
+                            <button type="button" 
+                                    class="btn btn-outline" 
+                                    data-toggle="password-form">
+                                Changer
+                            </button>
+                        </div>
+                        
+                        <div class="security-item">
+                            <div class="security-detail">
+                                <h3>Authentification à deux facteurs</h3>
+                                <p class="text-muted">Non activée</p>
+                            </div>
+                            <button type="button" class="btn btn-outline">
+                                Activer
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Formulaire changement mot de passe -->
+                    <form class="password-form" id="password-form" method="post" hidden>
+                        <fieldset class="form-fieldset">
+                            <legend>Changer le mot de passe</legend>
+                            
+                            <div class="form-group">
+                                <label for="current_password">Mot de passe actuel *</label>
+                                <input type="password" 
+                                       id="current_password" 
+                                       name="current_password" 
+                                       required
+                                       autocomplete="current-password"
+                                       class="form-control">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="new_password">Nouveau mot de passe *</label>
+                                <input type="password" 
+                                       id="new_password" 
+                                       name="new_password" 
+                                       required
+                                       minlength="8"
+                                       autocomplete="new-password"
+                                       class="form-control">
+                                <small class="form-help">
+                                    Minimum 8 caractères avec lettres, chiffres et symboles
+                                </small>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="confirm_password">Confirmer le nouveau mot de passe *</label>
+                                <input type="password" 
+                                       id="confirm_password" 
+                                       name="confirm_password" 
+                                       required
+                                       minlength="8"
+                                       autocomplete="new-password"
+                                       class="form-control">
+                            </div>
+                        </fieldset>
+                        
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary">
+                                🔐 Changer le mot de passe
+                            </button>
+                            <button type="button" class="btn btn-secondary cancel-password">
+                                Annuler
+                            </button>
+                        </div>
+                    </form>
+                </article>
+
+                <!-- Préférences -->
+                <article class="info-card">
+                    <header class="card-header">
+                        <h2>
+                            <span class="card-icon">⚙️</span>
+                            Préférences
+                        </h2>
+                    </header>
+                    
+                    <form class="preferences-form" method="post">
+                        <fieldset class="form-fieldset">
+                            <legend class="sr-only">Préférences du compte</legend>
+                            
+                            <div class="form-group">
+                                <label for="langue">Langue de l'interface</label>
+                                <select id="langue" name="langue" class="form-control">
+                                    <option value="fr" selected>Français</option>
+                                    <option value="en">English</option>
+                                    <option value="es">Español</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <fieldset class="checkbox-group">
+                                    <legend>Notifications email</legend>
+                                    
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" 
+                                               id="notif_memoriaux" 
+                                               name="notifications[]" 
+                                               value="memoriaux" 
+                                               checked>
+                                        <label for="notif_memoriaux">
+                                            Nouveaux mémoriaux dans ma région
+                                        </label>
+                                    </div>
+                                    
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" 
+                                               id="notif_anniversaires" 
+                                               name="notifications[]" 
+                                               value="anniversaires">
+                                        <label for="notif_anniversaires">
+                                            Anniversaires de décès
+                                        </label>
+                                    </div>
+                                    
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" 
+                                               id="notif_newsletter" 
+                                               name="notifications[]" 
+                                               value="newsletter" 
+                                               checked>
+                                        <label for="notif_newsletter">
+                                            Newsletter mensuelle
+                                        </label>
+                                    </div>
+                                </fieldset>
+                            </div>
+                            
+                            <div class="form-group">
+                                <fieldset class="radio-group">
+                                    <legend>Visibilité de mon profil</legend>
+                                    
+                                    <div class="radio-item">
+                                        <input type="radio" 
+                                               id="visibilite_publique" 
+                                               name="visibilite" 
+                                               value="publique" 
+                                               checked>
+                                        <label for="visibilite_publique">
+                                            <strong>Public</strong> - Visible par tous
+                                        </label>
+                                    </div>
+                                    
+                                    <div class="radio-item">
+                                        <input type="radio" 
+                                               id="visibilite_amis" 
+                                               name="visibilite" 
+                                               value="amis">
+                                        <label for="visibilite_amis">
+                                            <strong>Amis uniquement</strong> - Visible par mes contacts
+                                        </label>
+                                    </div>
+                                    
+                                    <div class="radio-item">
+                                        <input type="radio" 
+                                               id="visibilite_prive" 
+                                               name="visibilite" 
+                                               value="prive">
+                                        <label for="visibilite_prive">
+                                            <strong>Privé</strong> - Invisible dans les recherches
+                                        </label>
+                                    </div>
+                                </fieldset>
+                            </div>
+                        </fieldset>
+                        
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary">
+                                💾 Sauvegarder les préférences
+                            </button>
+                        </div>
+                    </form>
+                </article>
+
+                <!-- Mes mémoriaux récents -->
+                <article class="info-card">
+                    <header class="card-header">
+                        <h2>
+                            <span class="card-icon">📚</span>
+                            Mes derniers mémoriaux
+                        </h2>
+                        <a href="mes-memoriaux.html" class="btn btn-outline">
+                            Voir tous (3)
+                        </a>
+                    </header>
+                    
+                    <div class="memoriaux-preview">
+                        <article class="memorial-mini">
+                            <img src="assets/images/memorial-1.jpg" 
+                                 alt="Photo de Marie Dupont" 
+                                 class="memorial-photo">
+                            <div class="memorial-info">
+                                <h3>
+                                    <a href="memorial-detail.html?id=1">Marie Dupont</a>
+                                </h3>
+                                <p class="memorial-dates">1920 - 2023</p>
+                                <p class="memorial-stats">
+                                    <span>👁️ 45 visites</span>
+                                    <span>💬 3 messages</span>
+                                </p>
+                            </div>
+                            <div class="memorial-actions">
+                                <a href="modifier-memorial.html?id=1" 
+                                   class="btn btn-sm">
+                                   ✏️ Modifier
+                                </a>
+                            </div>
+                        </article>
+                        
+                        <article class="memorial-mini">
+                            <img src="assets/images/memorial-2.jpg" 
+                                 alt="Photo de Pierre Martin" 
+                                 class="memorial-photo">
+                            <div class="memorial-info">
+                                <h3>
+                                    <a href="memorial-detail.html?id=2">Pierre Martin</a>
+                                </h3>
+                                <p class="memorial-dates">1955 - 2024</p>
+                                <p class="memorial-stats">
+                                    <span>👁️ 12 visites</span>
+                                    <span>💬 1 message</span>
+                                </p>
+                            </div>
+                            <div class="memorial-actions">
+                                <a href="modifier-memorial.html?id=2" 
+                                   class="btn btn-sm">
+                                   ✏️ Modifier
+                                </a>
+                            </div>
+                        </article>
+                        
+                        <!-- Message si aucun mémorial -->
+                        <div class="empty-state" hidden>
+                            <div class="empty-icon">📚</div>
+                            <h3>Aucun mémorial créé</h3>
+                            <p>Commencez par créer votre premier mémorial</p>
+                            <a href="creer-memorial.html" class="btn btn-primary">
+                                ➕ Créer un mémorial
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Zone de danger -->
+        <section class="danger-zone">
+            <article class="info-card danger">
+                <header class="card-header">
+                    <h2>
+                        <span class="card-icon">⚠️</span>
+                        Zone de danger
+                    </h2>
+                </header>
+                
+                <div class="danger-content">
+                    <div class="danger-item">
+                        <div class="danger-info">
+                            <h3>Supprimer mon compte</h3>
+                            <p>
+                                Cette action est irréversible. Tous vos mémoriaux 
+                                et données seront définitivement supprimés.
+                            </p>
+                        </div>
+                        <button type="button" 
+                                class="btn btn-danger" 
+                                data-confirm="delete-account">
+                            🗑️ Supprimer le compte
+                        </button>
+                    </div>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <!-- PIED DE PAGE (ton code existant) -->
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Memorial</h3>
+                <p>Préserver la mémoire, honorer les vies.</p>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="memoriaux.html">Mémoriaux</a></li>
+                    <li><a href="auth.html">Connexion</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Aide</h4>
+                <ul>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="legal.html">Mentions légales</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Suivez-nous</h4>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook">📘</a>
+                    <a href="#" aria-label="Twitter">🐦</a>
+                    <a href="#" aria-label="Instagram">📷</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 Memorial. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts pour interactions futures -->
+    <script src="assets/js/profil.js"></script>
+</body>
+</html>

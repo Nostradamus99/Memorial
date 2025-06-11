@@ -1,0 +1,333 @@
+/* ===== 1. RESET CSS ===== */
+* { /* Sélecteur universel : tous les éléments HTML */
+    margin: 0; /* Supprime marges par défaut */
+    padding: 0; /* Supprime espacements par défaut */
+    box-sizing: border-box; /* Inclut bordures et padding dans la taille */
+}
+
+/* ===== 2. VARIABLES CSS ===== */
+:root { /* Pseudo-classe qui cible la racine du document HTML */
+    --bg-beige: #EDE8E6; /* Couleur de fond beige principale */
+    --bg-white: #FFFFFF; /* Blanc pur */
+    --btn-primary: #141414; /* Couleur bouton principal (gris foncé) */
+    --btn-secondary: #E1DCDA; /* Couleur bouton secondaire (beige clair) */
+    --text-primary: #141414; /* Couleur texte principal */
+    --border-gray: rgb(229, 231, 235); /* Couleur bordure grise */
+    --btn-hover: #727272; /* Couleur survol bouton (noir) */
+}
+
+/* ===== 3. LAYOUT/STRUCTURE GÉNÉRALE ===== */
+body { /* Sélectionne la balise HTML <body> */
+    display: flex; /* Transforme body en conteneur flexbox */
+    flex-direction: column; /* Empile les éléments verticalement */
+    min-height: 100vh; /* Garantit une hauteur minimum pleine page */
+    background-color: var(--bg-beige); /* Fond beige pour toute la page */
+    font-family: 'Figtree', sans-serif; /* Police principale */
+    font-size: 14px; /* Taille de police de base */
+    font-weight: 400; /* Graisse normale */
+    color: var(--text-primary); /* Couleur texte par défaut */
+    line-height: 1.5; /* Interlignage pour lisibilité */
+}
+
+main { /* Sélectionne la balise HTML <main> */
+    flex: 1; /* Fait grandir main pour occuper l'espace restant */
+}
+
+section {
+    padding: 10px 0; /* Espacement vertical */
+    margin: 0 120px; /* Espacement horizontal */
+}
+
+/* ===== EN-TÊTE ===== */
+.header {
+    background-color: var(--bg-beige); /* Fond beige pour l'en-tête */
+    border-bottom: 1px solid rgba(0,0,0,0.1); /* Bordure subtile en bas */
+}
+
+.logo {
+    font-family: 'Dancing Script', cursive; /* Police décorative pour logo */
+    font-size: 2.2rem; /* Grande taille pour le logo */
+    font-weight: 700; /* Texte gras */
+    color: var(--text-primary); /* Couleur du texte */
+    text-decoration: none; /* Supprime soulignement si c'est un lien */
+    display: flex; /* Layout flexbox */
+    align-items: center; /* Centrage vertical */
+}
+
+.nav-container {
+    display: flex; /* Layout flexbox pour navigation */
+    justify-content: space-between; /* Espace entre logo et navigation */
+    align-items: center; /* Centrage vertical */
+    max-width: 1200px; /* Largeur maximum du contenu */
+    margin: 0 auto; /* Centrage horizontal */
+    padding: 15px 40px; /* Espacement interne */
+    min-height: 70px; /* Hauteur minimum garantie */
+}
+
+.nav-container a {
+    text-decoration: none; /* Supprime soulignement des liens */
+    color: inherit; /* Hérite de la couleur du parent */
+}
+
+.nav-actions {
+    display: flex; /* Layout flexbox pour actions */
+    align-items: center; /* Centrage vertical */
+    gap: 1rem; /* Espacement entre éléments */
+    flex-shrink: 0; /* Empêche rétrécissement automatique */
+}
+
+.nav-actions a {
+    color: var(--text-primary); /* Couleur des liens */
+    text-decoration: none; /* Supprime soulignement */
+    font-size: 15px; /* Taille légèrement plus grande */
+    padding: 8px 12px; /* Espacement interne pour zone cliquable */
+    transition: all 0.2s ease; /* Animation douce sur tous changements */
+}
+
+.nav-actions .btn-primary {
+    background-color: var(--btn-primary); /* Fond du bouton principal */
+    color: white; /* Texte blanc */
+    border-radius: 25px; /* Coins très arrondis */
+    padding: 10px 20px; /* Espacement interne */
+    font-weight: 500; /* Légèrement plus gras */
+}
+
+.nav-actions .btn-primary:hover {
+    background-color: var(--btn-hover); /* Couleur au survol */
+}
+
+/* ===== SECTION HERO ===== */
+.main {
+    display: flex; /* Layout flexbox */
+    align-items: center; /* Centrage vertical */
+    gap: 2rem; /* Espace entre contenu et image */
+    max-width: 1200px; /* Largeur maximum */
+    margin: 0 auto; /* Centrage horizontal */
+    padding: 2rem 1rem; /* Espace interne pour éviter les bords */
+    min-height: 80vh; /* 80% de la hauteur viewport */
+}
+
+.hero-content {
+    flex: 1; /* Occupe l'espace restant */
+}
+
+.hero-image {
+    flex: 0 0 45%; /* Taille fixe, pas de croissance/rétrécissement */
+}
+
+.hero-image img {
+    width: 100%; /* Remplit le conteneur */
+    height: auto; /* Hauteur proportionnelle */
+    max-height: 600px; /* Hauteur maximum */
+    object-fit: cover; /* Recadre pour remplir */
+    border-radius: 8px; /* Coins arrondis */
+}
+
+/* Responsive pour tablettes et mobiles */
+@media (max-width: 768px) {
+    .main {
+        flex-direction: column; /* Empile verticalement */
+        text-align: center; /* Centre le texte */
+    }
+    .hero-image {
+        max-width: 100%; /* Utilise toute la largeur */
+    }
+}
+
+.hero-content .btn-secondary {
+    background-color: var(--btn-secondary); /* Fond beige */
+    color: var(--text-primary); /* Texte foncé */
+    border: 1px solid var(--border-gray); /* Bordure grise */
+    padding: 12px 24px; /* Espacement interne */
+    border-radius: 6px; /* Coins arrondis */
+    transition: opacity 0.2s ease-in; /* Animation d'opacité */
+}
+
+.hero-content .btn-secondary:hover {
+    opacity: 0.9; /* Légère réduction d'opacité */
+}
+
+/* ===== FOOTER ===== */
+.main-footer {
+    margin-top: auto; /* Pousse le footer en bas */
+    padding: 60px 0 0; /* Espacement en haut seulement */
+}
+
+.footer-content {
+    max-width: 1200px; /* Largeur maximum cohérente */
+    margin: 0 auto; /* Centrage horizontal */
+    padding: 0 40px; /* Espacement horizontal */
+    display: grid; /* Layout en grille */
+    grid-template-columns: 1.2fr 1fr 1fr 0.8fr; /* 4 colonnes proportionnelles */
+    gap: 60px; /* Espace entre colonnes */
+    margin-bottom: 40px; /* Espace en bas */
+}
+
+.footer-section h4 {
+    margin-bottom: 20px; /* Espace sous titres */
+    font-weight: 600; /* Texte semi-gras */
+}
+
+.footer-section p {
+    margin-bottom: 25px; /* Espace sous paragraphes */
+}
+
+.footer-section ul {
+    list-style: none; /* Supprime puces */
+}
+
+.footer-section li {
+    margin-bottom: 12px; /* Espace entre éléments liste */
+}
+
+.footer-section a {
+    text-decoration: none; /* Supprime soulignement */
+    transition: opacity 0.2s ease; /* Animation d'opacité */
+    display: block; /* Affichage en bloc pour zone cliquable */
+    line-height: 1.4; /* Interlignage spécifique */
+    color: inherit; /* Hérite couleur parent */
+}
+
+.footer-section a:hover {
+    opacity: 0.7; /* Réduit opacité au survol */
+}
+
+.social-section {
+    display: flex; /* Layout flexbox */
+    flex-direction: column; /* Empile verticalement */
+}
+
+.social-links {
+    display: flex; /* Layout flexbox horizontal */
+    gap: 15px; /* Espace entre icônes */
+    flex-wrap: wrap; /* Permet retour à la ligne */
+}
+
+.social-links a {
+    width: 45px; /* Largeur fixe */
+    height: 45px; /* Hauteur fixe (carré) */
+    display: flex; /* Layout flexbox */
+    align-items: center; /* Centrage vertical */
+    justify-content: center; /* Centrage horizontal */
+    border-radius: 8px; /* Coins arrondis */
+    font-size: 1.2rem; /* Taille icone */
+    transition: transform 0.2s ease; /* Animation de déplacement */
+}
+
+.social-links a:hover {
+    transform: translateY(-2px); /* Déplace vers le haut */
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(0,0,0,0.1); /* Bordure séparatrice */
+    padding: 25px 0; /* Espacement vertical */
+    margin: 0 40px; /* Marges horizontales */
+    display: flex; /* Layout flexbox */
+    justify-content: space-between; /* Espace entre éléments */
+    align-items: center; /* Centrage vertical */
+    flex-wrap: wrap; /* Permet retour ligne si besoin */
+    gap: 20px; /* Espace entre éléments wrappés */
+}
+
+.footer-bottom p {
+    margin: 0; /* Supprime marges */
+    font-size: 14px; /* Taille réduite */
+}
+
+.footer-links {
+    display: flex; /* Layout horizontal */
+    gap: 25px; /* Espace entre liens */
+}
+
+.footer-links a {
+    font-size: 14px; /* Taille cohérente */
+    text-decoration: none; /* Supprime soulignement */
+    transition: opacity 0.2s ease; /* Animation opacité */
+    color: inherit; /* Hérite couleur */
+}
+
+.footer-links a:hover {
+    opacity: 0.7; /* Réduit opacité au survol */
+}
+
+/* Responsive pour tablettes et mobiles */
+@media (max-width: 1024px) {
+    .footer-content {
+        grid-template-columns: 1fr 1fr; /* 2 colonnes sur tablette */
+        gap: 40px; /* Réduit l'espacement */
+        padding: 0 20px; /* Réduit padding horizontal */
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        grid-template-columns: 1fr; /* 1 colonne sur mobile */
+        gap: 40px; /* Espace entre sections */
+        text-align: left; /* Alignement gauche */
+    }
+    
+    .social-links {
+        justify-content: flex-start; /* Aligne icônes à gauche */
+    }
+    
+    .footer-bottom {
+        flex-direction: column; /* Empile verticalement */
+        text-align: center; /* Centre le contenu */
+        margin: 0 20px; /* Réduit marges */
+    }
+    
+    .footer-links {
+        order: -1; /* Place les liens en premier */
+    }
+}
+
+@media (max-width: 480px) {
+    .main-footer {
+        padding: 40px 0 0; /* Réduit padding sur très petit écran */
+    }
+    
+    .footer-content {
+        padding: 0 15px; /* Padding minimum */
+        gap: 30px; /* Réduit encore l'espacement */
+    }
+    
+    .social-links a {
+        width: 40px; /* Réduit taille icônes */
+        height: 40px; /* Réduit taille icônes */
+    }
+}
+
+/* ===== CREER MEMORIAL ===== */
+
+/* FORMULAIRE */
+.form {
+    display: flex;
+    flex-direction: column; /* Empile les éléments verticalement */
+    justify-content: center; /* Centrage vertical */
+    align-items: center; /* Centrage vertical */
+    gap: 20px;
+    max-width: 1200px;
+    width: 100%; /* Ajout important */
+    margin: 0 auto;
+    padding: 0 20px; /* Ajout de padding pour éviter de coller aux bords */
+    box-sizing: border-box; /* Inclut padding et border dans la largeur */
+}
+
+/* Responsivité pour petits écrans */
+@media (max-width: 768px) {
+    .form {
+        flex-direction: column; /* Empile verticalement sur mobile */
+        gap: 15px;
+        padding: 0 15px;
+    }
+}
+
+/* S'assurer que les champs de saisie sont flexibles */
+.form input,
+.form select,
+.form textarea {
+    flex: 1; /* Les champs prennent l'espace disponible */
+    min-width: 0; /* Évite le débordement du texte */
+    max-width: 100%;
+    box-sizing: border-box;
+}
