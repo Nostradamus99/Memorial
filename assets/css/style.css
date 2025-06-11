@@ -29,8 +29,16 @@ body { /* Sélectionne la balise HTML <body> */
     line-height: 1.5; /* Interlignage pour lisibilité */
 }
 
-main { /* Sélectionne la balise HTML <main> */
-    flex: 1; /* Fait grandir main pour occuper l'espace restant */
+main {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 80vh;
+    padding: 2rem 1rem; /* Ajout important pour éviter les bords */
+    box-sizing: border-box;
+    flex: 1; /* Garde cette propriété pour le layout général */
 }
 
 section {
@@ -97,54 +105,53 @@ section {
 }
 
 /* ===== SECTION HERO ===== */
-.main {
-    display: flex; /* Layout flexbox */
-    align-items: center; /* Centrage vertical */
-    gap: 2rem; /* Espace entre contenu et image */
-    max-width: 1200px; /* Largeur maximum */
-    margin: 0 auto; /* Centrage horizontal */
-    padding: 2rem 1rem; /* Espace interne pour éviter les bords */
-    min-height: 80vh; /* 80% de la hauteur viewport */
-}
-
 .hero-content {
-    flex: 1; /* Occupe l'espace restant */
-}
-
-.hero-image {
-    flex: 0 0 45%; /* Taille fixe, pas de croissance/rétrécissement */
-}
-
-.hero-image img {
-    width: 100%; /* Remplit le conteneur */
-    height: auto; /* Hauteur proportionnelle */
-    max-height: 600px; /* Hauteur maximum */
-    object-fit: cover; /* Recadre pour remplir */
-    border-radius: 8px; /* Coins arrondis */
-}
-
-/* Responsive pour tablettes et mobiles */
-@media (max-width: 768px) {
-    .main {
-        flex-direction: column; /* Empile verticalement */
-        text-align: center; /* Centre le texte */
-    }
-    .hero-image {
-        max-width: 100%; /* Utilise toute la largeur */
-    }
+    flex: 1; /* Prend tout l'espace disponible */
+    flex-direction: column; /* Empile les éléments verticalement */
+    display: flex; /* Transforme en conteneur flexbox */
 }
 
 .hero-content .btn-secondary {
-    background-color: var(--btn-secondary); /* Fond beige */
-    color: var(--text-primary); /* Texte foncé */
-    border: 1px solid var(--border-gray); /* Bordure grise */
+    background-color: var(--btn-secondary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-gray);
     padding: 12px 24px; /* Espacement interne */
     border-radius: 6px; /* Coins arrondis */
-    transition: opacity 0.2s ease-in; /* Animation d'opacité */
+    font-size: 16px; /* Taille de police */
+    transition: opacity 0.2s ease-in;
+    text-decoration: none; /* Supprime soulignement des liens */
+    align-self: flex-start; /* Le bouton ne prend que l'espace nécessaire */
 }
 
-.hero-content .btn-secondary:hover {
-    opacity: 0.9; /* Légère réduction d'opacité */
+.btn-secondary:hover {
+    opacity: 0.9;
+}
+
+.hero-image {
+    flex: 0 0 auto; /* ne grandit pas, ne rétrécit pas */
+    max-width: 45%; /* limite la largeur */
+}
+
+.hero-image img {
+    width: 100%; /* s'adapte au container */
+    height: auto; /* garde les proportions */
+    max-width: 1200px; /* taille maximum */
+    max-height: 600px; /* hauteur maximum */
+    object-fit: cover; /* recadre si nécessaire */
+    border-radius: 8px; /* optionnel: coins arrondis */
+}
+
+/* Responsive pour mobile */
+@media (max-width: 768px) {
+    .main {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .hero-content,
+    .hero-image {
+        max-width: 100%;
+    }
 }
 
 /* ===== FOOTER ===== */

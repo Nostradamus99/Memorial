@@ -1,0 +1,350 @@
+/* ===== STRUCTURE GÉNÉRALE PAGE ===== */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+}
+
+/* ===== VARIABLES CSS ===== */
+:root {
+    --bg-beige: #EDE8E6;
+    --bg-white: #FFFFFF;
+    --btn-primary: #141414;
+    --btn-secondary: #E1DCDA;
+    --text-primary: #141414;
+    --text-secondary: #494848;
+    --border-gray: rgb(229, 231, 235);
+    --btn-hover: #000000;
+}
+
+/* ===== BASE ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ===== HEADER ===== */
+.header {
+    background-color: var(--bg-beige);
+    padding: 0;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    width: 100%;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px 40px; 
+    height: auto; 
+    min-height: 70px; 
+    width: 100%; 
+    gap: 2rem
+}
+
+.nav-container a {
+    text-decoration: none;
+    color: inherit;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: var(--bg-beige);
+    font-family: 'Figtree', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--text-primary);
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+}
+
+.logo {
+    margin: 0;
+    padding: 0; 
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.header .logo {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ===== NAVIGATION ===== */
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem; /* espacement réduit */
+    flex-shrink: 0; /* empêche le rétrécissement */
+}
+
+.nav-actions a {
+    color: var(--text-primary);
+    text-decoration: none;
+    font-family: 'Figtree', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    padding: 8px 12px;
+    transition: all 0.2s ease;
+}
+
+.nav-actions .btn-primary {
+    background-color: var(--btn-primary);
+    color: white;
+    border-radius: 25px;
+    padding: 10px 20px;
+    font-weight: 500;
+}
+
+.nav-actions .btn-primary:hover {
+    background-color: var(--btn-hover);
+}
+
+/* ===== LAYOUT ===== */
+section {
+    padding: 10px 0;
+    margin: 0 101.25px;
+}
+
+/* ===== BOUTONS général ===== */
+.btn-primary {
+    background-color: var(--btn-primary);
+    color: var(--bg-white);
+    border: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    transition: opacity 0.2s ease-in;
+}
+
+.btn-primary:hover {
+    opacity: 0.8;
+}
+
+.btn-secondary {
+    background-color: var(--btn-secondary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-gray);
+    padding: 12px 24px;
+    border-radius: 6px;
+    transition: opacity 0.2s ease-in;
+}
+
+.btn-secondary:hover {
+    opacity: 0.9;
+}
+
+/* ===== SECTION HERO ===== */
+.main {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 80vh;
+}
+
+.hero-content {
+    flex: 1;
+    max-width: 50%;
+}
+
+.hero-image {
+    flex: 0 0 auto; /* ne grandit pas, ne rétrécit pas */
+    max-width: 45%; /* limite la largeur */
+}
+
+.hero-image img {
+    width: 100%; /* s'adapte au container */
+    height: auto; /* garde les proportions */
+    max-width: 1200px; /* taille maximum */
+    max-height: 600px; /* hauteur maximum */
+    object-fit: cover; /* recadre si nécessaire */
+    border-radius: 8px; /* optionnel: coins arrondis */
+}
+
+/* Responsive pour mobile */
+@media (max-width: 768px) {
+    .main {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .hero-content,
+    .hero-image {
+        max-width: 100%;
+    }
+}
+
+
+/* ===== FOOTER STRUCTURE ===== */
+.main-footer {
+    margin-top: auto;
+    padding: 60px 0 0;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1fr 0.8fr;
+    gap: 60px;
+    margin-bottom: 40px;
+}
+
+/* ===== SECTIONS FOOTER ===== */
+.footer-section h4 {
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.footer-section p {
+    margin-bottom: 25px;
+    line-height: 1.5;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-section li {
+    margin-bottom: 12px;
+}
+
+.footer-section a {
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+    display: block;
+    line-height: 1.4;
+    color: inherit;
+}
+
+.footer-section a:hover {
+    opacity: 0.7;
+}
+
+/* ===== SECTION SOCIALE ===== */
+.social-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.social-links a {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    transition: transform 0.2s ease;
+}
+
+.social-links a:hover {
+    transform: translateY(-2px);
+    opacity: 1;
+}
+
+/* ===== FOOTER BOTTOM ===== */
+.footer-bottom {
+    border-top: 1px solid rgba(0,0,0,0.1);
+    padding: 25px 0;
+    margin: 0 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-bottom p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 25px;
+}
+
+.footer-links a {
+    font-size: 14px;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+    color: inherit;
+}
+
+.footer-links a:hover {
+    opacity: 0.7;
+}
+
+/* ===== RESPONSIVE FOOTER ===== */
+@media (max-width: 1024px) {
+    .footer-content {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        padding: 0 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: left;
+    }
+    
+    .social-links {
+        justify-content: flex-start;
+    }
+    
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+        margin: 0 20px;
+    }
+    
+    .footer-links {
+        order: -1;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-footer {
+        padding: 40px 0 0;
+    }
+    
+    .footer-content {
+        padding: 0 15px;
+        gap: 30px;
+    }
+    
+    .social-links a {
+        width: 40px;
+        height: 40px;
+    }
+}
