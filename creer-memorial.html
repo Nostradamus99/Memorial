@@ -27,13 +27,6 @@
         <div class="container">
             <!-- En-tête de page -->
             <section class="page-header">
-                <div class="breadcrumb">
-                    <a href="index.html">Accueil</a> 
-                    <span>></span> 
-                    <a href="mes-memoriaux.html">Mes Mémoriaux</a>
-                    <span>></span>
-                    <span class="current">Créer un Mémorial</span>
-                </div>
                 <h1>Créer un nouveau Mémorial</h1>
                 <p class="page-description">
                     Honorez la mémoire d'un être cher en créant son mémorial personnel. 
@@ -42,7 +35,7 @@
             </section>
 
             <!-- Formulaire principal -->
-            <form class="memorial-form" method="POST" action="memorial-confirmation.html" enctype="multipart/form-data"> action="traitement-memorial.php">
+            <form class="memorial-form" method="POST" action="memorial-confirmation.html" enctype="multipart/form-data">
                 <input type="hidden" name="action" value="create">
                 <input type="hidden" name="memorial_id" value="">
 
@@ -79,7 +72,7 @@
                 </fieldset>
 
                 <!-- Section 2: Informations personnelles -->
-                <fieldset class="form-section personal-info">
+                <fieldset class="form-section personnal-section">
                     <legend>Informations personnelles</legend>
                     
                     <div class="form-grid">
@@ -362,15 +355,15 @@
 
                 <!-- Boutons d'action -->
                 <div class="form-actions">
-                     <button type="button" class="btn btn-secondary" onclick="history.back()">
+                     <button type="back" class="btn btn-secondary" onclick="history.back()">
                          <span class="btn-icon">←</span>
                          Retour
                      </button>
-                    <button type="button" class="btn btn-outline" onclick="saveDraft()">
+                    <button type="saveDraft" class="btn btn-outline" onclick="saveDraft()">
                          <span class="btn-icon">💾</span>
                          Sauvegarder brouillon
                      </button>
-                     <button type="button" class="btn btn-outline" onclick="previewMemorial()">
+                     <button type="previewMemorial" class="btn btn-outline" onclick="previewMemorial()">
                          <span class="btn-icon">👁️</span>
                          Aperçu
                      </button>

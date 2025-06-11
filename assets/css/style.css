@@ -116,6 +116,7 @@ section {
     color: var(--text-primary);
     border: 1px solid var(--border-gray);
     padding: 12px 24px; /* Espacement interne */
+    margin-top: 10px; /* Espace au-dessus du bouton */
     border-radius: 6px; /* Coins arrondis */
     font-size: 16px; /* Taille de police */
     transition: opacity 0.2s ease-in;
@@ -305,36 +306,371 @@ section {
 }
 
 /* ===== CREER MEMORIAL ===== */
-
-/* FORMULAIRE */
-.form {
-    display: flex;
-    flex-direction: column; /* Empile les éléments verticalement */
-    justify-content: center; /* Centrage vertical */
-    align-items: center; /* Centrage vertical */
-    gap: 20px;
-    max-width: 1200px;
-    width: 100%; /* Ajout important */
+/* Conteneur principal du formulaire */
+main form {
+    display: grid;
+    gap: 24px;
+    padding: 20px;
+    max-width: 1400px;
     margin: 0 auto;
-    padding: 0 20px; /* Ajout de padding pour éviter de coller aux bords */
-    box-sizing: border-box; /* Inclut padding et border dans la largeur */
 }
 
-/* Responsivité pour petits écrans */
-@media (max-width: 768px) {
-    .form {
-        flex-direction: column; /* Empile verticalement sur mobile */
-        gap: 15px;
-        padding: 0 15px;
+/* Layout Desktop (1024px+) */
+@media (min-width: 1024px) {
+    main form {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: auto auto auto;
+        grid-template-areas: 
+            "photo personal dates"
+            "biography biography family"
+            "gallery privacy privacy";
+    }
+    
+    .photo-section { grid-area: photo; }
+    .personnal-info { grid-area: personal; }
+    .dates-section { grid-area: dates; }
+    .biography-section { grid-area: biography; }
+    .family-section { grid-area: family; }
+    .gallery-section { grid-area: gallery; }
+    .privacy-section { grid-area: privacy; }
+}
+
+/* Layout Tablet (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+    main form {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: 
+            "photo personal"
+            "dates family"
+            "biography biography"
+            "gallery privacy";
+    }
+    
+    .photo-section { grid-area: photo; }
+    .personnal-info { grid-area: personal; }
+    .dates-section { grid-area: dates; }
+    .family-section { grid-area: family; }
+    .biography-section { grid-area: biography; }
+    .gallery-section { grid-area: gallery; }
+    .privacy-section { grid-area: privacy; }
+}
+
+/* Layout Mobile (moins de 768px) */
+@media (max-width: 767px) {
+    main form {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        padding: 10px;
+    }
+    
+    /* Ordre logique sur mobile */
+    .photo-section { order: 1; }
+    .personnal-info { order: 2; }
+    .dates-section { order: 3; }
+    .family-section { order: 4; }
+    .biography-section { order: 5; }
+    .gallery-section { order: 6; }
+    .privacy-section { order: 7; }
+}
+
+.page-header {
+    background-color:#EDE8E6;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 24px;
+    margin: 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+/* Styles génériques pour toutes les sections */
+.form-section {
+    background-color:#EDE8E6;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 24px;
+    margin: 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    min-height: 200px; /* Hauteur minimale pour cohérence */
+}
+
+.form-section:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+    transform: translateY(-2px);
+}
+
+/* Styles des légendes */
+.form-section legend {
+    font-weight: 600;
+    font-size: 18px;
+    color: #1f2937;
+    padding: 0 12px;
+    margin-bottom: 20px;
+    border: none;
+    background-color: transparent;
+}
+
+/* Styles spécifiques par section */
+
+/* Section Photo - Couleur bleue */
+.photo-section {
+    border-left: 5px solid #3b82f6;
+    background: linear-gradient(135deg, #f0f1fd 0%, #ffffff 100%);
+}
+
+.photo-section legend {
+    color: #3b82f6;
+    position: relative;
+}
+
+.photo-section legend::before {
+    content: "📸";
+    margin-right: 8px;
+}
+
+/* Section Informations personnelles - Couleur verte */
+.personnal-section {
+    border-left: 5px solid #10b981;
+    background: linear-gradient(135deg, #f0fdf4 0%, #ffffff 100%);
+}
+
+.personnal-section legend {
+    color: #10b981;
+}
+
+.personnal-section legend::before {
+    content: "👤";
+    margin-right: 8px;
+}
+
+/* Section Dates - Couleur orange */
+.dates-section {
+    border-left: 5px solid #f59e0b;
+    background: linear-gradient(135deg, #fffbeb 0%, #ffffff 100%);
+}
+
+.dates-section legend {
+    color: #f59e0b;
+}
+
+.dates-section legend::before {
+    content: "📅";
+    margin-right: 8px;
+}
+
+/* Section Famille - Couleur rose */
+.family-section {
+    border-left: 5px solid #ec4899;
+    background: linear-gradient(135deg, #fdf2f8 0%, #ffffff 100%);
+}
+
+.family-section legend {
+    color: #ec4899;
+}
+
+.family-section legend::before {
+    content: "👨‍👩‍👧‍👦";
+    margin-right: 8px;
+}
+
+/* Section Biographie - Couleur violet */
+.biography-section {
+    border-left: 5px solid #8b5cf6;
+    background: linear-gradient(135deg, #f5f3ff 0%, #ffffff 100%);
+    min-height: 250px; /* Plus haute pour le contenu */
+}
+
+.biography-section legend {
+    color: #8b5cf6;
+}
+
+.biography-section legend::before {
+    content: "📖";
+    margin-right: 8px;
+}
+
+/* Section Galerie - Couleur cyan */
+.gallery-section {
+    border-left: 5px solid #06b6d4;
+    background: linear-gradient(135deg, #f0f9ff 0%, #ffffff 100%);
+}
+
+.gallery-section legend {
+    color: #06b6d4;
+}
+
+.gallery-section legend::before {
+    content: "🖼️";
+    margin-right: 8px;
+}
+
+/* Section Confidentialité - Couleur grise */
+.privacy-section {
+    border-left: 5px solid #6c6c6c;
+    background: linear-gradient(135deg, #e8e8e8 0%, #ffffff 100%);
+}
+
+.privacy-section legend {
+    color: #6b7280;
+}
+
+.privacy-section legend::before {
+    content: "🔒";
+    margin-right: 8px;
+}
+
+/* Effets hover spéciaux */
+.photo-section:hover { border-left-color: #2563eb; }
+.personnal-info:hover { border-left-color: #059669; }
+.dates-section:hover { border-left-color: #d97706; }
+.family-section:hover { border-left-color: #db2777; }
+.biography-section:hover { border-left-color: #7c3aed; }
+.gallery-section:hover { border-left-color: #0891b2; }
+.privacy-section:hover { border-left-color: #4b5563; }
+
+/* Animation d'apparition */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
-/* S'assurer que les champs de saisie sont flexibles */
-.form input,
-.form select,
-.form textarea {
-    flex: 1; /* Les champs prennent l'espace disponible */
-    min-width: 0; /* Évite le débordement du texte */
-    max-width: 100%;
+.form-section {
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+/* Délai d'animation pour chaque section */
+.photo-section { animation-delay: 0.1s; }
+.personnal-info { animation-delay: 0.2s; }
+.dates-section { animation-delay: 0.3s; }
+.family-section { animation-delay: 0.4s; }
+.biography-section { animation-delay: 0.5s; }
+.gallery-section { animation-delay: 0.6s; }
+.privacy-section { animation-delay: 0.7s; }
+
+/* Tous les inputs de texte */
+main form fieldset input[type="text"],
+main form fieldset input[type="email"],
+main form fieldset input[type="date"],
+main form fieldset input[type="tel"],
+main form fieldset input[type="url"],
+main form fieldset input[type="password"],
+main form fieldset input[type="number"],
+main form fieldset select,
+main form fieldset textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: inherit;
+    background-color: #ffffff;
+    transition: all 0.3s ease;
     box-sizing: border-box;
+}
+
+/* ===== BOUTONS ===== */
+/* Le conteneur des boutons */
+main form .form-actions {
+    display: flex;
+    justify-content: center; /* ou space-between, flex-end selon votre besoin */
+    align-items: center;
+    gap: 50px;
+    margin-top: 0;
+    padding: 0 0;
+    grid-column: 1 / -1; /* Prend toute la largeur de la grille */
+}
+
+/* Bouton submit */
+main form button[type="submit"] {
+    grid-column: 1 / -1; /* Prend toute la largeur */
+    margin-top: 32px;
+    padding: 16px 32px;
+    font-size: 18px;
+    font-weight: 600;
+    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+main form button[type="submit"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+    background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+}
+
+/* Bouton back */
+main form button[type="back"] {
+    grid-column: 1 / -1; /* Prend toute la largeur */
+    margin-top: 32px;
+    padding: 16px 32px;
+    font-size: 18px;
+    font-weight: 600;
+    background: linear-gradient(135deg, #f63b3b 0%, #d81d1d 100%);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(246, 59, 59, 0.3);
+}
+
+main form button[type="back"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(246, 59, 59, 0.4);
+    background: linear-gradient(135deg, #eb2525 0%, #af1e1e 100%);
+}
+
+/* Bouton saveDraft */
+main form button[type="saveDraft"] {
+    grid-column: 1 / -1; /* Prend toute la largeur */
+    margin-top: 32px;
+    padding: 16px 32px;
+    font-size: 18px;
+    font-weight: 600;
+    background: linear-gradient(135deg, #3ef63b 0%, #30d81d 100%);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(84, 246, 59, 0.3);
+}
+
+main form button[type="saveDraft"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(100, 246, 59, 0.4);
+    background: linear-gradient(135deg, #28eb25 0%, #20af1e 100%);
+}
+
+/* Bouton saveDraft */
+main form button[type="previewMemorial"] {
+    grid-column: 1 / -1; /* Prend toute la largeur */
+    margin-top: 32px;
+    padding: 16px 32px;
+    font-size: 18px;
+    font-weight: 600;
+    background: linear-gradient(135deg, #c4c4c4 0%, #bfbfbf 100%);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(242, 242, 242, 0.3);
+}
+
+main form button[type="previewMemorial"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(246, 246, 246, 0.4);
+    background: linear-gradient(135deg, #c4c4c4 0%, #bfbfbf 100%);
 }
