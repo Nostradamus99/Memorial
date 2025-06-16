@@ -5,10 +5,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <title>Memorial</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;600&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/mes-memoriaux.css">
 </head>
 
 <body>
@@ -24,249 +24,206 @@
     </div>
   </header>
 
-<body>
-    <!-- EN-TÊTE -->
-    <header class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <a href="index.html">Memorial</a>
-            </div>
-            <nav class="nav-menu">
-                <a href="memoriaux.html">Mémoriaux</a>
-                <a href="mes-memoriaux.html" class="nav-active">Mes mémoriaux</a>
-                <a href="profil.html">Profil</a>
-            </nav>
-            <div class="nav-actions">
-                <div class="user-dropdown">
-                    <button class="dropdown-toggle">
-                        S'inscrire/Connexion
-                        <span class="dropdown-arrow">▼</span>
-                    </button>
-                    <div class="dropdown-menu">
-                        <a href="profil.html">Profil</a>
-                        <a href="#" onclick="logout()">Déconnexion</a>
-                    </div>
-                </div>
-                <a href="#" class="nav-button">Accueil</a>
-            </div>
-        </div>
-    </header>
+    <main class="main">
+        <!-- CONTENU PRINCIPAL -->
+        <section class="mes-memoriaux">
+            <div class="content-grid">
+                <article class="memorial-card">
+                    <header class="memorial-header">
+                        <h1>Mes mémoriaux</h1>
+                        <p class="page-subtitle">Gérez et consultez tous vos mémoriaux créés</p>
+                    </header>
 
-    <!-- BARRE DE RECHERCHE -->
-    <section class="search-section">
-        <div class="container">
-            <div class="search-bar">
-                <input type="text" placeholder="Rechercher dans mes mémoriaux..." class="search-input">
-                <button class="search-btn">🔍</button>
-            </div>
-            <div class="page-actions">
-                <a href="creer-memorial.html" class="btn btn-primary">
-                    <span class="btn-icon">➕</span>
-                    Créer un mémorial
-                </a>
-                <div class="view-options">
-                    <button class="view-btn active" data-view="grid">⊞</button>
-                    <button class="view-btn" data-view="list">☰</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CONTENU PRINCIPAL -->
-    <main class="main-content">
-        <div class="container">
-            <!-- TITRE DE LA SECTION -->
-            <div class="page-header">
-                <h1>Mes mémoriaux</h1>
-                <p class="page-subtitle">Gérez et consultez tous vos mémoriaux créés</p>
-            </div>
-
-            <!-- FILTRES -->
-            <div class="memorial-filters">
-                <div class="filter-tabs">
-                    <button class="filter-tab active" data-filter="all">
-                        Tous <span class="count">(3)</span>
-                    </button>
-                    <button class="filter-tab" data-filter="published">
-                        Publiés <span class="count">(2)</span>
-                    </button>
-                    <button class="filter-tab" data-filter="draft">
-                        Brouillons <span class="count">(1)</span>
-                    </button>
-                    <button class="filter-tab" data-filter="private">
-                        Privés <span class="count">(1)</span>
-                    </button>
-                </div>
-                <div class="sort-options">
-                    <select class="sort-select">
-                        <option value="recent">Plus récents</option>
-                        <option value="oldest">Plus anciens</option>
-                        <option value="name">Par nom</option>
-                        <option value="visits">Par visites</option>
-                    </select>
-                </div>
-            </div>
-
-            <!-- LISTE DES MÉMORIAUX -->
-            <div class="memorials-grid" id="memorials-container">
-                
-                <!-- MÉMORIAL 1 - Publié -->
-                <div class="memorial-card published" data-status="published">
-                    <div class="memorial-header">
-                        <div class="memorial-photo">
-                            <img src="https://via.placeholder.com/120x120/cccccc/666666?text=Photo" alt="Jean Dupont">
-                            <div class="status-badge published">Publié</div>
-                        </div>
-                        <div class="memorial-info">
-                            <h3 class="memorial-name">Jean Dupont</h3>
-                            <p class="memorial-dates">15 mars 1950 - 12 janvier 2024</p>
-                            <p class="memorial-description">Père aimant, mari dévoué et ami fidèle</p>
-                            <div class="memorial-stats">
-                                <span class="stat">👁️ 245 vues</span>
-                                <span class="stat">💬 12 messages</span>
-                                <span class="stat">📷 8 photos</span>
-                            </div>
-                        </div>
-                        <div class="memorial-actions">
-                            <button class="action-btn dropdown-trigger" onclick="toggleDropdown(this)">
-                                ⋮
+                    <div class="memorial-filters">
+                        <div class="filter-tabs">
+                            <select class="sort-select">
+                                <option value="recent">Plus récents</option>
+                                <option value="oldest">Plus anciens</option>
+                                <option value="name">Par nom</option>
+                                <option value="visits">Par visites</option>
+                            </select>
+                            <button class="filter-tab active" data-filter="all">
+                                Tous <span class="count">(3)</span>
                             </button>
-                            <div class="action-dropdown">
-                                <a href="#" onclick="viewMemorial(1)">👁️ Voir</a>
-                                <a href="#" onclick="editMemorial(1)">✏️ Modifier</a>
-                                <a href="#" onclick="shareMemorial(1)">📤 Partager</a>
-                                <a href="#" onclick="duplicateMemorial(1)">📄 Dupliquer</a>
-                                <hr>
-                                <a href="#" onclick="deleteMemorial(1)" class="danger">🗑️ Supprimer</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- ACTIONS RAPIDES -->
-                    <div class="memorial-quick-actions">
-                        <button class="quick-action" onclick="addTribute(1)">
-                            <span class="action-icon">✍️</span>
-                            <span class="action-text">Ajouter hommage</span>
-                        </button>
-                        <button class="quick-action" onclick="addPhoto(1)">
-                            <span class="action-icon">📷</span>
-                            <span class="action-text">Ajouter photo</span>
-                        </button>
-                        <button class="quick-action" onclick="shareToFamily(1)">
-                            <span class="action-icon">👥</span>
-                            <span class="action-text">Partager aux proches</span>
-                        </button>
-                        <button class="quick-action" onclick="manageMemories(1)">
-                            <span class="action-icon">💝</span>
-                            <span class="action-text">Gérer souvenirs</span>
-                        </button>
-                    </div>
-
-                    <!-- APERÇU DES DERNIÈRES ACTIVITÉS -->
-                    <div class="memorial-activity">
-                        <h4>Dernières activités</h4>
-                        <div class="activity-list">
-                            <div class="activity-item">
-                                <span class="activity-icon">💬</span>
-                                <span class="activity-text">Marie L. a laissé un message</span>
-                                <span class="activity-time">Il y a 2h</span>
-                            </div>
-                            <div class="activity-item">
-                                <span class="activity-icon">📷</span>
-                                <span class="activity-text">Photo ajoutée par Pierre D.</span>
-                                <span class="activity-time">Hier</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- MÉMORIAL 2 - Brouillon -->
-                <div class="memorial-card draft" data-status="draft">
-                    <div class="memorial-header">
-                        <div class="memorial-photo">
-                            <img src="https://via.placeholder.com/120x120/cccccc/666666?text=Photo" alt="Marie Martin">
-                            <div class="status-badge draft">Brouillon</div>
-                        </div>
-                        <div class="memorial-info">
-                            <h3 class="memorial-name">Marie Martin</h3>
-                            <p class="memorial-dates">22 juin 1945 - 8 février 2024</p>
-                            <p class="memorial-description">Mémorial en cours de création...</p>
-                            <div class="memorial-stats">
-                                <span class="stat incomplete">❌ Non publié</span>
-                                <span class="stat">📝 Brouillon sauvegardé</span>
-                            </div>
-                        </div>
-                        <div class="memorial-actions">
-                            <button class="action-btn dropdown-trigger" onclick="toggleDropdown(this)">
-                                ⋮
+                            <button class="filter-tab" data-filter="published">
+                                Publiés <span class="count">(2)</span>
                             </button>
-                            <div class="action-dropdown">
-                                <a href="creer-memorial.html?edit=2">✏️ Continuer</a>
-                                <a href="#" onclick="previewDraft(2)">👁️ Aperçu</a>
-                                <a href="#" onclick="publishDraft(2)">🌟 Publier</a>
-                                <hr>
-                                <a href="#" onclick="deleteDraft(2)" class="danger">🗑️ Supprimer</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="draft-actions">
-                        <a href="creer-memorial.html?edit=2" class="btn btn-primary">
-                            Continuer la création
-                        </a>
-                        <button class="btn btn-outline" onclick="publishDraft(2)">
-                            Publier maintenant
-                        </button>
-                    </div>
-                </div>
-
-                <!-- MÉMORIAL 3 - Privé -->
-                <div class="memorial-card private" data-status="private">
-                    <div class="memorial-header">
-                        <div class="memorial-photo">
-                            <img src="https://via.placeholder.com/120x120/cccccc/666666?text=Photo" alt="Robert Durand">
-                            <div class="status-badge private">Privé</div>
-                        </div>
-                        <div class="memorial-info">
-                            <h3 class="memorial-name">Robert Durand</h3>
-                            <p class="memorial-dates">10 novembre 1940 - 25 décembre 2023</p>
-                            <p class="memorial-description">Visible uniquement par la famille</p>
-                            <div class="memorial-stats">
-                                <span class="stat">👥 5 personnes autorisées</span>
-                                <span class="stat">💬 8 messages</span>
-                            </div>
-                        </div>
-                        <div class="memorial-actions">
-                            <button class="action-btn dropdown-trigger" onclick="toggleDropdown(this)">
-                                ⋮
+                            <button class="filter-tab" data-filter="draft">
+                                Brouillons <span class="count">(1)</span>
                             </button>
-                            <div class="action-dropdown">
-                                <a href="#" onclick="viewMemorial(3)">👁️ Voir</a>
-                                <a href="#" onclick="editMemorial(3)">✏️ Modifier</a>
-                                <a href="#" onclick="managePrivacy(3)">🔒 Gérer l'accès</a>
-                                <a href="#" onclick="makePublic(3)">🌍 Rendre public</a>
-                                <hr>
-                                <a href="#" onclick="deleteMemorial(3)" class="danger">🗑️ Supprimer</a>
+                            <button class="filter-tab" data-filter="private">
+                                Privés <span class="count">(1)</span>
+                            </button>
+                        </div>
+                   </div>
+
+                    <!-- LISTE DES MÉMORIAUX -->
+                    <div class="memorials-grid" id="memorials-container">
+                        
+                        <!-- MÉMORIAL 1 - Publié -->
+                        <div class="memorial-card published" data-status="published">
+                            <div class="memorial-header">
+                                <div class="memorial-photo">
+                                    <img src="https://via.placeholder.com/120x120/cccccc/666666?text=Photo" alt="Jean Dupont">
+                                    <div class="status-badge published">Publié</div>
+                                </div>
+                                <div class="memorial-info">
+                                    <h3 class="memorial-name">Jean Dupont</h3>
+                                    <p class="memorial-dates">15 mars 1950 - 12 janvier 2024</p>
+                                    <p class="memorial-description">Père aimant, mari dévoué et ami fidèle</p>
+                                    <div class="memorial-stats">
+                                        <span class="stat">👁️ 245 vues</span>
+                                        <span class="stat">💬 12 messages</span>
+                                        <span class="stat">📷 8 photos</span>
+                                    </div>
+                                </div>
+                                <div class="memorial-actions">
+                                        <button class="action-card">
+                                            <span class="action-icon">👁️</span>
+                                            <span class="action-text">Voir</span>
+                                        <button class="action-card">
+                                            <span class="action-icon">✏️</span>
+                                            <span class="action-text">Modifier</span>
+                                        </button>
+                                        <button class="action-card">
+                                            <span class="action-icon">📤</span>
+                                            <span class="action-text">Partager</span>
+                                        </button>
+                                        <button class="action-card">
+                                            <span class="action-icon">📄</span>
+                                            <span class="action-text">Dupliquer</span>
+                                        </button>
+                                        <button class="action-card danger">
+                                            <span class="action-icon">🗑️</span>
+                                            <span class="action-text">Supprimer</span>
+                                        </button>
+                                </div>
+                            </div>
+
+                            <!-- APERÇU DES DERNIÈRES ACTIVITÉS -->
+                            <div class="memorial-activity">
+                                <h4>Dernières activités</h4>
+                                <div class="activity-list">
+                                    <div class="activity-item">
+                                        <span class="activity-icon">💬</span>
+                                        <span class="activity-text">Marie L. a laissé un message</span>
+                                        <span class="activity-time">Il y a 2h</span>
+                                    </div>
+                                    <div class="activity-item">
+                                        <span class="activity-icon">📷</span>
+                                        <span class="activity-text">Photo ajoutée par Pierre D.</span>
+                                        <span class="activity-time">Hier</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- MÉMORIAL 2 - Brouillon -->
+                        <div class="memorial-card draft" data-status="draft">
+                            <div class="memorial-header">
+                                <div class="memorial-photo">
+                                    <img src="https://via.placeholder.com/120x120/cccccc/666666?text=Photo" alt="Marie Martin">
+                                    <div class="status-badge draft">Brouillon</div>
+                                </div>
+                                <div class="memorial-info">
+                                    <h3 class="memorial-name">Marie Martin</h3>
+                                    <p class="memorial-dates">22 juin 1945 - 8 février 2024</p>
+                                    <p class="memorial-description">Mémorial en cours de création...</p>
+                                    <div class="memorial-stats">
+                                        <span class="stat incomplete">❌ Non publié</span>
+                                        <span class="stat">📝 Brouillon sauvegardé</span>
+                                    </div>
+                                </div>
+                                <div class="memorial-actions">
+                                    <button class="action-card-brouillon">
+                                        <span class="action-icon">👁️</span>
+                                        <span class="action-text">Aperçu</span>
+                                    </button>
+                                    <button class="action-card-brouillon">
+                                        <span class="action-icon">✏️</span>
+                                        <span class="action-text">Continuer la création</span>
+                                    </button>
+                                    <button class="action-card-brouillon">
+                                        <span class="action-icon">📤</span>
+                                        <span class="action-text">Publié</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- MÉMORIAL 3 - Privé -->
+                        <div class="memorial-card private" data-status="private">
+                            <div class="memorial-header">
+                                <div class="memorial-photo">
+                                    <img src="https://via.placeholder.com/120x120/cccccc/666666?text=Photo" alt="Robert Durand">
+                                    <div class="status-badge private">Privé</div>
+                                </div>
+                                <div class="memorial-info">
+                                    <h3 class="memorial-name">Robert Durand</h3>
+                                    <p class="memorial-dates">10 novembre 1940 - 25 décembre 2023</p>
+                                    <p class="memorial-description">Visible uniquement par la famille</p>
+                                    <div class="memorial-stats">
+                                        <span class="stat">👥 5 personnes autorisées</span>
+                                        <span class="stat">💬 8 messages</span>
+                                    </div>
+                                </div>
+                                <div class="memorial-actions">
+                                    <button class="action-card-private">
+                                        <span class="action-icon">🔑</span>
+                                        <span class="action-text">Gérer l'accès</span>
+                                    </button>
+                                    <button class="action-card-private">
+                                        <span class="action-icon">🌍</span>
+                                        <span class="action-text">Rendre public</span>
+                                    </button>
+                                    <button class="action-card-private">
+                                        <span class="action-icon">✏️</span>
+                                        <span class="action-text">Modifier</span>
+                                    </button>
+                                    <button class="action-card-private">
+                                        <span class="action-icon">🗑️</span>
+                                        <span class="action-text">Supprimer</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Partage aux proches -->
+                        <div id="share-modal" class="modal">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h3>Partager aux proches</h3>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="share-options">
+                                        <div class="share-method">
+                                            <h4>📧 Par email</h4>
+                                            <textarea placeholder="Entrez les emails séparés par des virgules"></textarea>
+                                            <button class="btn btn-primary">Envoyer invitations</button>
+                                        </div>
+                                        <div class="share-method">
+                                            <h4>🔗 Lien de partage</h4>
+                                            <div class="link-share">
+                                                <input type="text" value="https://memorial.com/jean-dupont" readonly>
+                                                <button class="btn btn-outline">Copier</button>
+                                            </div>
+                                        </div>
+                                        <div class="share-method">
+                                            <h4>📱 Réseaux sociaux</h4>
+                                            <div class="social-share">
+                                                <button class="social-btn facebook">Facebook</button>
+                                                <button class="social-btn whatsapp">WhatsApp</button>
+                                                <button class="social-btn telegram">Telegram</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-
-                    <div class="memorial-quick-actions">
-                        <button class="quick-action" onclick="manageAccess(3)">
-                            <span class="action-icon">🔑</span>
-                            <span class="action-text">Gérer les accès</span>
-                        </button>
-                        <button class="quick-action" onclick="inviteFamily(3)">
-                            <span class="action-icon">✉️</span>
-                            <span class="action-text">Inviter famille</span>
-                        </button>
-                        <button class="quick-action" onclick="addPhoto(3)">
-                            <span class="action-icon">📷</span>
-                            <span class="action-text">Ajouter photo</span>
-                        </button>
-                    </div>
-                </div>
+                </article>
             </div>
+
 
             <!-- MESSAGE SI AUCUN MÉMORIAL -->
             <div class="empty-state" id="empty-state" style="display: none;">
@@ -277,302 +234,51 @@
                     Créer votre premier mémorial
                 </a>
             </div>
-        </div>
+        </section>
     </main>
 
-    <!-- PIED DE PAGE -->
+    <!-- PIED DE PAGE (ton code existant) -->
     <footer class="main-footer">
-        <div class="footer-container">
-            <div class="footer-links">
-                <div class="footer-section">
-                    <h4>Site name</h4>
-                </div>
-                <div class="footer-section">
-                    <h4>Topic</h4>
-                    <a href="#" class="footer-link">Page</a>
-                    <a href="#" class="footer-link">Page</a>
-                    <a href="#" class="footer-link">Page</a>
-                </div>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Memorial</h3>
+                <p>Préserver la mémoire, honorer les vies.</p>
             </div>
-            <div class="footer-social">
+            
+            <div class="footer-section">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="memoriaux.html">Mémoriaux</a></li>
+                    <li><a href="auth.html">Connexion</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Aide</h4>
+                <ul>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="legal.html">Mentions légales</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Suivez-nous</h4>
                 <div class="social-links">
                     <a href="#" aria-label="Facebook">📘</a>
-                    <a href="#" aria-label="LinkedIn">💼</a>
-                    <a href="#" aria-label="YouTube">📺</a>
+                    <a href="#" aria-label="Twitter">🐦</a>
                     <a href="#" aria-label="Instagram">📷</a>
                 </div>
             </div>
         </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 Memorial. Tous droits réservés.</p>
+        </div>
     </footer>
 
-    <!-- MODALES -->
-    
-    <!-- Modal Partage aux proches -->
-    <div id="share-modal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>Partager aux proches</h3>
-                <button class="modal-close" onclick="closeModal('share-modal')">&times;</button>
-            </div>
-            <div class="modal-body">
-                <div class="share-options">
-                    <div class="share-method">
-                        <h4>📧 Par email</h4>
-                        <textarea placeholder="Entrez les emails séparés par des virgules"></textarea>
-                        <button class="btn btn-primary">Envoyer invitations</button>
-                    </div>
-                    <div class="share-method">
-                        <h4>🔗 Lien de partage</h4>
-                        <div class="link-share">
-                            <input type="text" value="https://memorial.com/jean-dupont" readonly>
-                            <button class="btn btn-outline" onclick="copyLink()">Copier</button>
-                        </div>
-                    </div>
-                    <div class="share-method">
-                        <h4>📱 Réseaux sociaux</h4>
-                        <div class="social-share">
-                            <button class="social-btn facebook">Facebook</button>
-                            <button class="social-btn whatsapp">WhatsApp</button>
-                            <button class="social-btn telegram">Telegram</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal Ajout Photo -->
-    <div id="photo-modal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>Ajouter des photos</h3>
-                <button class="modal-close" onclick="closeModal('photo-modal')">&times;</button>
-            </div>
-            <div class="modal-body">
-                <div class="upload-zone">
-                    <input type="file" id="photo-upload" multiple accept="image/*" style="display: none;">
-                    <div class="upload-area" onclick="document.getElementById('photo-upload').click()">
-                        <div class="upload-icon">📷</div>
-                        <p>Cliquez pour sélectionner des photos</p>
-                        <p class="upload-hint">ou glissez-déposez vos images ici</p>
-                    </div>
-                </div>
-                <div class="upload-actions">
-                    <button class="btn btn-primary">Télécharger photos</button>
-                    <button class="btn btn-outline">Annuler</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- SCRIPTS -->
-    <script>
-        // === FONCTIONS PRINCIPALES ===
-
-        // Gestion des dropdowns d'actions
-        function toggleDropdown(button) {
-            const dropdown = button.nextElementSibling;
-            const isOpen = dropdown.style.display === 'block';
-            
-            // Fermer tous les autres dropdowns
-            document.querySelectorAll('.action-dropdown').forEach(d => d.style.display = 'none');
-            
-            // Basculer le dropdown actuel
-            dropdown.style.display = isOpen ? 'none' : 'block';
-        }
-
-        // Fermer les dropdowns en cliquant ailleurs
-        document.addEventListener('click', function(e) {
-            if (!e.target.matches('.dropdown-trigger') && !e.target.matches('.action-btn')) {
-                document.querySelectorAll('.action-dropdown').forEach(d => d.style.display = 'none');
-            }
-        });
-
-        // === ACTIONS SUR LES MÉMORIAUX ===
-
-        function viewMemorial(id) {
-            window.open(`memorial-view.html?id=${id}`, '_blank');
-        }
-
-        function editMemorial(id) {
-            window.location.href = `creer-memorial.html?edit=${id}`;
-        }
-
-        function deleteMemorial(id) {
-            if (confirm('Êtes-vous sûr de vouloir supprimer ce mémorial ? Cette action est irréversible.')) {
-                // Animation de suppression
-                const card = event.target.closest('.memorial-card');
-                card.style.transition = 'all 0.3s ease';
-                card.style.transform = 'translateX(-100%)';
-                card.style.opacity = '0';
-                
-                setTimeout(() => {
-                    card.remove();
-                    updateCounts();
-                }, 300);
-            }
-        }
-
-        // === ACTIONS RAPIDES ===
-
-        function addTribute(id) {
-            const tribute = prompt('Écrivez votre hommage :');
-            if (tribute) {
-                alert('Hommage ajouté avec succès !');
-                // Ici on ajouterait la logique de sauvegarde
-            }
-        }
-
-        function addPhoto(id) {
-            document.getElementById('photo-modal').style.display = 'block';
-        }
-
-        function shareToFamily(id) {
-            document.getElementById('share-modal').style.display = 'block';
-        }
-
-        function manageMemories(id) {
-            window.location.href = `memorial-memories.html?id=${id}`;
-        }
-
-        // === FONCTIONS POUR LES BROUILLONS ===
-
-        function publishDraft(id) {
-            if (confirm('Êtes-vous sûr de vouloir publier ce mémorial ?')) {
-                const card = document.querySelector(`[data-status="draft"]`);
-                const badge = card.querySelector('.status-badge');
-                
-                // Changer le statut
-                card.dataset.status = 'published';
-                card.className = 'memorial-card published';
-                badge.textContent = 'Publié';
-                badge.className = 'status-badge published';
-                
-                // Mise à jour des stats
-                const stats = card.querySelector('.memorial-stats');
-                stats.innerHTML = `
-                    <span class="stat">👁️ 0 vues</span>
-                    <span class="stat">💬 0 messages</span>
-                    <span class="stat">📷 0 photos</span>
-                `;
-                
-                // Ajouter les actions rapides
-                const quickActions = document.createElement('div');
-                quickActions.className = 'memorial-quick-actions';
-                quickActions.innerHTML = `
-                    <button class="quick-action" onclick="addTribute(${id})">
-                        <span class="action-icon">✍️</span>
-                        <span class="action-text">Ajouter hommage</span>
-                    </button>
-                    <button class="quick-action" onclick="addPhoto(${id})">
-                        <span class="action-icon">📷</span>
-                        <span class="action-text">Ajouter photo</span>
-                    </button>
-                    <button class="quick-action" onclick="shareToFamily(${id})">
-                        <span class="action-icon">👥</span>
-                        <span class="action-text">Partager aux proches</span>
-                    </button>
-                `;
-                
-                card.appendChild(quickActions);
-                
-                alert('Mémorial publié avec succès !');
-                updateCounts();
-            }
-        }
-
-        // === GESTION DES FILTRES ===
-
-        document.querySelectorAll('.filter-tab').forEach(tab => {
-            tab.addEventListener('click', function() {
-                // Mettre à jour l'onglet actif
-                document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
-                this.classList.add('active');
-                
-                // Filtrer les cartes
-                const filter = this.dataset.filter;
-                const cards = document.querySelectorAll('.memorial-card');
-                
-                cards.forEach(card => {
-                    if (filter === 'all' || card.dataset.status === filter) {
-                        card.style.display = 'block';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-            });
-        });
-
-        // === GESTION DES MODALES ===
-
-        function closeModal(modalId) {
-            document.getElementById(modalId).style.display = 'none';
-        }
-
-        function copyLink() {
-            const linkInput = document.querySelector('.link-share input');
-            linkInput.select();
-            document.execCommand('copy');
-            alert('Lien copié dans le presse-papiers !');
-        }
-
-        // === FONCTIONS UTILITAIRES ===
-
-        function updateCounts() {
-            const published = document.querySelectorAll('[data-status="published"]').length;
-            const draft = document.querySelectorAll('[data-status="draft"]').length;
-            const private = document.querySelectorAll('[data-status="private"]').length;
-            const total = published + draft + private;
-            
-            document.querySelector('[data-filter="all"] .count').textContent = `(${total})`;
-            document.querySelector('[data-filter="published"] .count').textContent = `(${published})`;
-            document.querySelector('[data-filter="draft"] .count').textContent = `(${draft})`;
-            document.querySelector('[data-filter="private"] .count').textContent = `(${private})`;
-        }
-
-        // === GESTION DES VUES ===
-        document.querySelectorAll('.view-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                document.querySelectorAll('.view-btn').forEach(b => b.classList.remove('active'));
-                this.classList.add('active');
-                
-                const view = this.dataset.view;
-                const container = document.getElementById('memorials-container');
-                
-                if (view === 'list') {
-                    container.classList.add('list-view');
-                } else {
-                    container.classList.remove('list-view');
-                }
-            });
-        });
-
-        // === INITIALISATION ===
-        document.addEventListener('DOMContentLoaded', function() {
-            updateCounts();
-            
-            // Gestion du drag & drop pour les photos
-            const uploadArea = document.querySelector('.upload-area');
-            if (uploadArea) {
-                uploadArea.addEventListener('dragover', (e) => {
-                    e.preventDefault();
-                    uploadArea.classList.add('dragover');
-                });
-                
-                uploadArea.addEventListener('dragleave', () => {
-                    uploadArea.classList.remove('dragover');
-                });
-                
-                uploadArea.addEventListener('drop', (e) => {
-                    e.preventDefault();
-                    uploadArea.classList.remove('dragover');
-                    // Traiter les fichiers déposés
-                    const files = e.dataTransfer.files;
-                    console.log('Files dropped:', files);
-                });
-            }
-        });
-    </script>
+    <script src="assets/js/script.js"></script>
 
 </body>
 </html>

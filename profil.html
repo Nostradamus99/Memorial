@@ -5,56 +5,25 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <title>Memorial</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;600&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/profil.css">
 </head>
 
-<body>
+<body class="profil-page">
   <header class="header">
     <div class="nav-container">
-     <a href= "index.html"><h1 class="logo">Memorial</h1></a>
-       <div class="nav-actions">
-            <a href="memoriaux.html">Mémoriaux</a>
-            <a href="auth.html">S'inscrire/Connexion</a>
-            <a href="profil.html">Profil</a>
-            <a href="creer-memorial.html" class="btn-primary">Créer</a>
-       </div>
+      <a href="index.html"><h1 class="logo">Memorial</h1></a>
+      <nav class="nav-actions">
+        <a href="memoriaux.html">Mémoriaux</a>
+        <a href="auth.html">S'inscrire/Connexion</a>
+        <a href="profil.html">Profil</a>
+        <a href="creer-memorial.html" class="btn-primary">Créer</a>
+      </nav>
     </div>
   </header>
-  
-<body>
-    <!-- EN-TÊTE (ton code existant) -->
-    <header class="main-header">
-        <nav class="navbar">
-            <div class="nav-brand">
-                <h1><a href="index.html">Memorial</a></h1>
-            </div>
-            
-            <ul class="nav-menu">
-                <li><a href="index.html">Accueil</a></li>
-                <li><a href="memoriaux.html">Mémoriaux</a></li>
-                <li class="nav-user">
-                    <div class="user-dropdown">
-                        <button class="dropdown-toggle" type="button">
-                            👤 Jean Dupont ▼
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a href="profil.html" class="active">Mon Profil</a></li>
-                            <li><a href="mes-memoriaux.html">Mes Mémoriaux</a></li>
-                            <li><a href="creer-memorial.html">Créer un Mémorial</a></li>
-                            <li><a href="parametres.html">Paramètres</a></li>
-                            <li><a href="index.html">Déconnexion</a></li>
-                        </ul>
-                    </div>
-                </li>
-            </ul>
-        </nav>
-    </header>
-
-    <!-- CONTENU PRINCIPAL -->
-    <main class="profil-page">
+    <main class="main">
         <!-- Section photo de profil -->
         <section class="profil-header">
             <div class="avatar-section">
@@ -97,11 +66,10 @@
                     </span>
                 </div>
             </div>
-        </section>
 
-        <!-- Actions rapides -->
-        <section class="quick-actions">
-            <div class="action-cards">
+             <!-- Actions rapides -->
+            <div class="quick-actions">
+                <div class="action-cards">
                 <a href="creer-memorial.html" class="action-card primary">
                     <div class="card-icon">➕</div>
                     <h3>Créer un mémorial</h3>
@@ -225,12 +193,12 @@
                             
                             <div class="form-group">
                                 <label for="adresse">Adresse complète</label>
-                                <textarea id="adresse" 
+                                    <textarea id="adresse" 
                                         name="adresse" 
                                         rows="3" 
                                         class="form-control"
-                                        placeholder="Numéro, rue, code postal, ville">123 Rue de la Paix
-75001 Paris, France</textarea>
+                                        placeholder="Numéro, rue, code postal, ville">123 Rue de la Paix 75001 Paris, France
+                                    </textarea>
                             </div>
                         </fieldset>
                         
@@ -506,37 +474,27 @@
                             </a>
                         </div>
                     </div>
+                 </article>
+
+                         <!-- Zone de danger -->
+                         <div class="danger-zone">
+                          <article class="info-card danger">
+                            <header class="card-header">
+                            <h2><span class="card-icon">⚠️</span>Zone de danger</h2>
+                            </header>
+                
+                             <div class="danger-content">
+                                 <div class="danger-item">
+                                    <div class="danger-info">
+                                     <h3>Supprimer mon compte</h3>
+                                     <p> Cette action est irréversible. Tous vos mémoriaux et données seront définitivement supprimés.</p>
+                         </div>
+                            <button type="button" 
+                                class="btn btn-danger" 
+                                data-confirm="delete-account">🗑️ Supprimer le compte
+                            </button>
                 </article>
             </div>
-        </section>
-
-        <!-- Zone de danger -->
-        <section class="danger-zone">
-            <article class="info-card danger">
-                <header class="card-header">
-                    <h2>
-                        <span class="card-icon">⚠️</span>
-                        Zone de danger
-                    </h2>
-                </header>
-                
-                <div class="danger-content">
-                    <div class="danger-item">
-                        <div class="danger-info">
-                            <h3>Supprimer mon compte</h3>
-                            <p>
-                                Cette action est irréversible. Tous vos mémoriaux 
-                                et données seront définitivement supprimés.
-                            </p>
-                        </div>
-                        <button type="button" 
-                                class="btn btn-danger" 
-                                data-confirm="delete-account">
-                            🗑️ Supprimer le compte
-                        </button>
-                    </div>
-                </div>
-            </article>
         </section>
     </main>
 

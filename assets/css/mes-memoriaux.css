@@ -1,0 +1,103 @@
+/* ===================
+   STYLES MES-MEMORIAUX.CSS
+   =================== */
+
+.main {
+    display: block;
+    width: 100vw;          /* Force 100% de la largeur viewport */
+    max-width: none;       /* Annule toute limitation */
+    min-width: 100%;       /* Garantit au minimum 100% */
+}
+
+@media (max-width: 1024px) {
+    .main {
+        padding: 20px 10px;
+    }
+}
+
+
+
+/* MEMORIAUX */
+
+.memorial-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 28px 30px 22px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.memorial-header h1 {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0 0 8px 0;
+    line-height: 1.2;
+}
+
+.memorial-stats {
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+}
+
+/* ===== BOUTONS ===== */
+.btn, .btn-primary, .btn-outline, .btn-secondary, .filter-tabs {
+    border-radius: 6px;
+    padding: 9px 18px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background .13s, color .13s, border .13s;
+    border: none;
+    font-weight: 500;
+    text-decoration: none;
+}
+.btn-primary {
+    background: #2962ff;
+    color: #fff;
+    border: 1px solid #2962ff;
+}
+.btn-primary:hover {
+    background: #1743ad;
+}
+.btn-outline {
+    background: #fff;
+    color: #2962ff;
+    border: 1.5px solid #2962ff;
+}
+.btn-outline:hover {
+    background: #e8f0ff;
+}
+.btn-secondary {
+    background: #edf2fa;
+    color: #374151;
+    border: 1.3px solid #dbe6fb;
+}
+.btn-secondary:hover {
+    background: #dde9fa;
+}
+
+.memorial-actions, .filter-tabs, .social-share, .memorial-filters {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: left;
+}
+.filter-tab, .quick-action, .social-btn, .sort-select, .action-card, .action-card-brouillon, .action-card-private {
+    background: #edf2fa;
+    border: none;
+    color: #4074cc;
+    border-radius: 6px;
+    padding: 5px 14px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.17s;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.filter-tab:hover, .quick-action:hover, .social-btn:hover , .sort-select:hover, .action-card:hover, .action-card-brouillon:hover, .action-card-private:hover {
+    background: #dbe6fb;
+}
+
