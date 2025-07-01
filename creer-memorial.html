@@ -47,9 +47,9 @@
                     <div class="photo-upload-area">
                         <div class="photo-preview">
                             <img src="assets/images/default-memorial.png" 
-                                 alt="Aperçu de la photo" 
-                                 id="photo-preview" 
-                                 class="memorial-photo">
+                                alt="Aperçu de la photo" 
+                                id="photo-preview" 
+                                class="memorial-photo">
                             <div class="photo-overlay">
                                 <span class="upload-icon">📷</span>
                                 <p>Cliquez pour ajouter une photo</p>
@@ -57,14 +57,22 @@
                         </div>
                         
                         <input type="file" 
-                               id="memorial-photo" 
-                               name="photo_principale" 
-                               accept="image/jpeg,image/png,image/gif"
-                               hidden>
+                            id="memorial-photo" 
+                            name="photo_principale" 
+                            accept="image/jpeg,image/png,image/gif"
+                            hidden>
                         
-                        <label for="memorial-photo" class="btn btn-outline">
-                            Choisir une photo
-                        </label>
+                        <div class="photo-actions">
+                            <button type="button" class="btn btn-outline" id="choose-main-photo">
+                                📷 Choisir une photo
+                            </button>
+                            <button type="button" class="btn btn-secondary" id="edit-main-photo" style="display:none;">
+                                ✏️ Modifier
+                            </button>
+                            <button type="button" class="btn btn-danger" id="remove-main-photo" style="display:none;">
+                                🗑️ Supprimer
+                            </button>
+                        </div>
                         
                         <p class="form-help">
                             Formats acceptés: JPG, PNG, GIF. Taille max: 5MB
@@ -253,64 +261,79 @@
 
                 <!-- Section 6: Galerie photos -->
                 <fieldset class="form-section gallery-section">
-                    <legend>Galerie photos (optionnel)</legend>
+                    <legend>Galerie photos</legend>
                     
-                    <div class="photos-upload">
-                        <div class="photo-slots">
-                            <div class="photo-slot">
-                                <input type="file" 
-                                       id="photo1" 
-                                       name="galerie[]" 
-                                       accept="image/*" 
-                                       hidden>
-                                <label for="photo1" class="photo-slot-label">
-                                    <span class="add-icon">+</span>
-                                    <span>Ajouter une photo</span>
-                                </label>
+                    <div class="gallery-header">
+                        <p>Ajoutez des photos supplémentaires pour enrichir le mémorial</p>
+                        <button type="button" class="btn btn-primary" id="add-gallery-photos">
+                            📸 Ajouter des photos
+                        </button>
+                    </div>
+                    
+                    <div class="photos-gallery" id="photos-gallery">
+                        <!-- Les photos seront ajoutées dynamiquement ici -->
+                        <div class="photo-slot empty-slot" data-slot="1">
+                            <div class="photo-slot-content">
+                                <span class="add-icon">+</span>
+                                <span>Première photo</span>
                             </div>
-                            
-                            <div class="photo-slot">
-                                <input type="file" 
-                                       id="photo2" 
-                                       name="galerie[]" 
-                                       accept="image/*" 
-                                       hidden>
-                                <label for="photo2" class="photo-slot-label">
-                                    <span class="add-icon">+</span>
-                                    <span>Ajouter une photo</span>
-                                </label>
-                            </div>
-                            
-                            <div class="photo-slot">
-                                <input type="file" 
-                                       id="photo3" 
-                                       name="galerie[]" 
-                                       accept="image/*" 
-                                       hidden>
-                                <label for="photo3" class="photo-slot-label">
-                                    <span class="add-icon">+</span>
-                                    <span>Ajouter une photo</span>
-                                </label>
-                            </div>
-                            
-                            <div class="photo-slot">
-                                <input type="file" 
-                                       id="photo4" 
-                                       name="galerie[]" 
-                                       accept="image/*" 
-                                       hidden>
-                                <label for="photo4" class="photo-slot-label">
-                                    <span class="add-icon">+</span>
-                                    <span>Ajouter une photo</span>
-                                </label>
-                            </div>
+                            <input type="file" 
+                                id="photo1" 
+                                name="galerie[]" 
+                                accept="image/*" 
+                                hidden>
                         </div>
                         
-                        <p class="form-help">
-                            Vous pouvez ajouter jusqu'à 10 photos supplémentaires. 
-                            Cliquez sur "+" pour sélectionner une image.
-                        </p>
+                        <div class="photo-slot empty-slot" data-slot="2">
+                            <div class="photo-slot-content">
+                                <span class="add-icon">+</span>
+                                <span>Deuxième photo</span>
+                            </div>
+                            <input type="file" 
+                                id="photo2" 
+                                name="galerie[]" 
+                                accept="image/*" 
+                                hidden>
+                        </div>
+                        
+                        <div class="photo-slot empty-slot" data-slot="3">
+                            <div class="photo-slot-content">
+                                <span class="add-icon">+</span>
+                                <span>Troisième photo</span>
+                            </div>
+                            <input type="file" 
+                                id="photo3" 
+                                name="galerie[]" 
+                                accept="image/*" 
+                                hidden>
+                        </div>
+                        
+                        <div class="photo-slot empty-slot" data-slot="4">
+                            <div class="photo-slot-content">
+                                <span class="add-icon">+</span>
+                                <span>Quatrième photo</span>
+                            </div>
+                            <input type="file" 
+                                id="photo4" 
+                                name="galerie[]" 
+                                accept="image/*" 
+                                hidden>
+                        </div>
                     </div>
+                    
+                    <div class="gallery-actions">
+                        <button type="button" class="btn btn-outline" id="clear-gallery">
+                            🗑️ Tout supprimer
+                        </button>
+                        <button type="button" class="btn btn-secondary" id="preview-gallery">
+                            👁️ Aperçu galerie
+                        </button>
+                    </div>
+                    
+                    <p class="form-help">
+                        Vous pouvez ajouter jusqu'à 10 photos supplémentaires. 
+                        Glissez-déposez vos images ou cliquez sur les zones.
+                    </p>
                 </fieldset>
 
                 <!-- Section 7: Paramètres de publication -->
@@ -439,4 +462,5 @@
             <p>&copy; 2024 Memorial. Tous droits réservés.</p>
         </div>
     </footer>
+<script src="assets/js/photo-upload.js"></script>
 </body>
