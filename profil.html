@@ -106,20 +106,20 @@
                         </button>
                     </header>
                     
-                    <!-- Mode lecture -->
+                    <!-- Informations personnelles -->
                     <div class="info-display" id="personal-display">
                         <dl class="info-list">
                             <div class="info-item">
                                 <dt>Nom complet</dt>
-                                <dd>Jean Dupont</dd>
+                                <dd id="nom-profil">Jean Dupont</dd>
                             </div>
                             <div class="info-item">
                                 <dt>Email</dt>
-                                <dd>jean.dupont@email.com</dd>
+                                <dd id="email-profil">jean.dupont@email.com</dd>
                             </div>
                             <div class="info-item">
                                 <dt>Téléphone</dt>
-                                <dd>06 12 34 56 78</dd>
+                                <dd id="telephone-profil">06 12 34 56 78</dd>
                             </div>
                             <div class="info-item">
                                 <dt>Date de naissance</dt>
@@ -476,24 +476,26 @@
                     </div>
                  </article>
 
-                         <!-- Zone de danger -->
-                         <div class="danger-zone">
-                          <article class="info-card danger">
+                        <!-- Zone de danger -->
+                        <div class="danger-zone">
+                        <article class="info-card danger">
                             <header class="card-header">
-                            <h2><span class="card-icon">⚠️</span>Zone de danger</h2>
+                                <h2><span class="card-icon">⚠️</span>Zone de danger</h2>
                             </header>
-                
-                             <div class="danger-content">
-                                 <div class="danger-item">
+
+                            <div class="danger-content">
+                                <div class="danger-item">
                                     <div class="danger-info">
                                      <h3>Supprimer mon compte</h3>
                                      <p> Cette action est irréversible. Tous vos mémoriaux et données seront définitivement supprimés.</p>
-                         </div>
+                                    </div>
+                                </div>
+                            </div>
                             <button type="button" 
                                 class="btn btn-danger" 
                                 data-confirm="delete-account">🗑️ Supprimer le compte
                             </button>
-                </article>
+                        </article>
             </div>
         </section>
     </main>
@@ -538,8 +540,7 @@
             <p>&copy; 2024 Memorial. Tous droits réservés.</p>
         </div>
     </footer>
-
-    <!-- Scripts pour interactions futures -->
+    <script src="assets/js/script.js"></script>
     <script src="assets/js/profil.js"></script>
 </body>
 </html>

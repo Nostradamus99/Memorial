@@ -27,25 +27,25 @@
   <main class="main">
         <div class="auth-container">
             <!-- FORMULAIRE DE CONNEXION -->
-            <form class="auth-form">
+            <form id="form-connexion" class="auth-form">
                 <fieldset class="form-section connexion-section">
                     <legend>Connexion</legend>
                     <div>
-                        <label for="email">Email :</label>
-                        <input type="email" id="email" name="email" required>
+                        <label for="email-connexion">Email :</label>
+                        <input type="email" id="email-connexion" name="email" required>
                     </div>
                     <div>
-                        <label for="password">Mot de passe :</label>
-                        <input type="password" id="password" name="password" required>
+                        <label for="password-connexion">Mot de passe :</label>
+                        <input type="password" id="password-connexion" name="password" required>
                     </div>
                     <p class="forgot-password">
                         <a href="#">Mot de passe oublié ?</a>
-                    <button type="connect">Se connecter</button>  
+                    <button type="submit" id="btn-connexion">Se connecter</button>  
                 </fieldset>
             </form>
 
             <!-- FORMULAIRE D'INSCRIPTION -->
-            <form class="auth-form">
+            <form id="form-inscription" class="auth-form">
                 <fieldset class="form-section inscription-section">
                     <legend>Inscription</legend>
                     <div>
@@ -60,7 +60,7 @@
                         <a for="reg-password">Mot de passe :</a>
                         <input type="password" id="reg-password" name="password" required>
                     </div>
-                    <button type="submit">S'inscrire</button>
+                    <button type="submit" id="btn-inscription">S'inscrire</button>
                 </fieldset>
             </form>
         </div>
@@ -106,8 +106,8 @@
             <p>&copy; 2024 Memorial. Tous droits réservés.</p>
         </div>
     </footer>
-
-  <script src="script.js"></script>
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/auth.js"></script>
 </body>
 
 </html>
