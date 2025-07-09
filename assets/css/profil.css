@@ -334,6 +334,15 @@
     background: #dde9fa;
 }
 
+.btn-danger {
+    background: #dc3545;
+    color: #fff;
+    border: 1px solid #dc3545;
+}
+.btn-danger:hover {
+    background: #c82333;
+}
+
 /* --- Section Sécurité --- */
 .security-info {
     display: flex;
@@ -345,7 +354,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px dashed #e7e7ee;
+    border-bottom: 1px dashed #eee7e7;
     padding-bottom: 12px;
     margin-bottom: 10px;
 }

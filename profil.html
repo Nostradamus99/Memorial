@@ -12,26 +12,26 @@
 </head>
 
 <body class="profil-page">
-  <header class="header">
-    <div class="nav-container">
-      <a href="index.html"><h1 class="logo">Memorial</h1></a>
-      <nav class="nav-actions">
-        <a href="memoriaux.html">Mémoriaux</a>
-        <a href="auth.html">S'inscrire/Connexion</a>
-        <a href="profil.html">Profil</a>
-        <a href="creer-memorial.html" class="btn-primary">Créer</a>
-      </nav>
-    </div>
-  </header>
+    <header class="header">
+        <div class="nav-container">
+            <a href="index.html"><h1 class="logo">Memorial</h1></a>
+            <nav class="nav-actions">
+                <a href="memoriaux.html">Mémoriaux</a>
+                <a href="auth.html">S'inscrire/Connexion</a>
+                <a href="profil.html">Profil</a>
+                <a href="creer-memorial.html" class="btn-primary">Créer</a>
+            </nav>
+        </div>
+    </header>
     <main class="main">
         <!-- Section photo de profil -->
         <section class="profil-header">
             <div class="avatar-section">
                 <div class="avatar-container">
                     <img src="assets/images/default-avatar.png" 
-                         alt="Photo de profil de Jean Dupont" 
-                         class="user-avatar" 
-                         id="current-avatar">
+                        alt="Photo de profil de Jean Dupont" 
+                        class="user-avatar" 
+                        id="current-avatar">
                     <div class="avatar-overlay">
                         <span class="camera-icon">📷</span>
                     </div>
@@ -39,10 +39,10 @@
                 
                 <form class="avatar-form" method="post" enctype="multipart/form-data">
                     <input type="file" 
-                           id="photo-upload" 
-                           name="avatar" 
-                           accept="image/jpeg,image/png,image/gif" 
-                           hidden>
+                        id="photo-upload" 
+                        name="avatar" 
+                        accept="image/jpeg,image/png,image/gif" 
+                        hidden>
                     <label for="photo-upload" class="upload-btn">
                         📷 Changer la photo
                     </label>
@@ -67,26 +67,27 @@
                 </div>
             </div>
 
-             <!-- Actions rapides -->
+            <!-- Actions rapides -->
             <div class="quick-actions">
                 <div class="action-cards">
-                <a href="creer-memorial.html" class="action-card primary">
-                    <div class="card-icon">➕</div>
-                    <h3>Créer un mémorial</h3>
-                    <p>Honorer la mémoire d'un proche</p>
-                </a>
-                
-                <a href="mes-memoriaux.html" class="action-card">
-                    <div class="card-icon">📚</div>
-                    <h3>Mes mémoriaux</h3>
-                    <p>Gérer mes créations (3)</p>
-                </a>
-                
-                <a href="memoriaux.html" class="action-card">
-                    <div class="card-icon">🔍</div>
-                    <h3>Parcourir</h3>
-                    <p>Découvrir d'autres mémoriaux</p>
-                </a>
+                    <a href="creer-memorial.html" class="action-card primary">
+                        <div class="card-icon">➕</div>
+                        <h3>Créer un mémorial</h3>
+                        <p>Honorer la mémoire d'un proche</p>
+                    </a>
+                    
+                    <a href="mes-memoriaux.html" class="action-card">
+                        <div class="card-icon">📚</div>
+                        <h3>Mes mémoriaux</h3>
+                        <p>Gérer mes créations (3)</p>
+                    </a>
+                    
+                    <a href="memoriaux.html" class="action-card">
+                        <div class="card-icon">🔍</div>
+                        <h3>Parcourir</h3>
+                        <p>Découvrir d'autres mémoriaux</p>
+                    </a>
+                </div>
             </div>
         </section>
 
@@ -110,24 +111,24 @@
                     <div class="info-display" id="personal-display">
                         <dl class="info-list">
                             <div class="info-item">
-                                <dt>Nom complet</dt>
-                                <dd id="nom-profil">Jean Dupont</dd>
+                                <dt>👤 Nom complet</dt>
+                                <dd type="text" id="nom-profil">Votre nom complet</dd>
                             </div>
                             <div class="info-item">
-                                <dt>Email</dt>
-                                <dd id="email-profil">jean.dupont@email.com</dd>
+                                <dt>📧 Email</dt>
+                                <dd id="email-profil">Votre adresse email</dd>
                             </div>
                             <div class="info-item">
-                                <dt>Téléphone</dt>
-                                <dd id="telephone-profil">06 12 34 56 78</dd>
+                                <dt>📱 Téléphone</dt>
+                                <dd id="telephone-profil">Votre numéro de téléphone</dd>
                             </div>
                             <div class="info-item">
-                                <dt>Date de naissance</dt>
-                                <dd>15 mars 1985</dd>
+                                <dt>🎂 Date de naissance</dt>
+                                <dd id="date_naissance-profil">Votre date de naissance</dd>
                             </div>
                             <div class="info-item">
-                                <dt>Adresse</dt>
-                                <dd>123 Rue de la Paix<br>75001 Paris, France</dd>
+                                <dt>🏠 Adresse</dt>
+                                <dd id="adresse-profil">Votre adresse</dd>
                             </div>
                         </dl>
                     </div>
@@ -141,64 +142,67 @@
                                 <div class="form-group">
                                     <label for="prenom">Prénom *</label>
                                     <input type="text" 
-                                           id="prenom" 
-                                           name="prenom" 
-                                           value="Jean" 
-                                           required 
-                                           minlength="2"
-                                           class="form-control">
+                                        id="prenom" 
+                                        name="prenom" 
+                                        value="" 
+                                        required 
+                                        minlength="2"
+                                        class="form-control"
+                                        placeholder="Votre prénom">
                                 </div>
                                 <div class="form-group">
                                     <label for="nom">Nom *</label>
                                     <input type="text" 
-                                           id="nom" 
-                                           name="nom" 
-                                           value="Dupont" 
-                                           required 
-                                           minlength="2"
-                                           class="form-control">
+                                        id="nom" 
+                                        name="nom" 
+                                        value="" 
+                                        required 
+                                        minlength="2"
+                                        class="form-control"
+                                        placeholder="Votre nom">
                                 </div>
                             </div>
                             
                             <div class="form-group">
                                 <label for="email">Adresse email *</label>
                                 <input type="email" 
-                                       id="email" 
-                                       name="email" 
-                                       value="jean.dupont@email.com" 
-                                       required
-                                       class="form-control">
+                                    id="email" 
+                                    name="email" 
+                                    value="" 
+                                    required
+                                    class="form-control"
+                                    placeholder="votre@email.com">
                             </div>
                             
                             <div class="form-group">
                                 <label for="telephone">Téléphone</label>
                                 <input type="tel" 
-                                       id="telephone" 
-                                       name="telephone" 
-                                       value="0612345678" 
-                                       pattern="[0-9]{10}"
-                                       class="form-control">
+                                    id="telephone" 
+                                    name="telephone" 
+                                    value="" 
+                                    pattern="[0-9]{10}"
+                                    class="form-control"
+                                    placeholder="0123456789">
                                 <small class="form-help">Format: 0123456789</small>
                             </div>
                             
                             <div class="form-group">
                                 <label for="date_naissance">Date de naissance</label>
                                 <input type="date" 
-                                       id="date_naissance" 
-                                       name="date_naissance" 
-                                       value="1985-03-15"
-                                       max="2006-01-01"
-                                       class="form-control">
+                                    id="date_naissance" 
+                                    name="date_naissance" 
+                                    value=""
+                                    max="2006-01-01"
+                                    class="form-control">
                             </div>
                             
                             <div class="form-group">
                                 <label for="adresse">Adresse complète</label>
-                                    <textarea id="adresse" 
+                                <textarea id="adresse" 
                                         name="adresse" 
                                         rows="3" 
                                         class="form-control"
-                                        placeholder="Numéro, rue, code postal, ville">123 Rue de la Paix 75001 Paris, France
-                                    </textarea>
+                                        placeholder="Numéro, rue, code postal, ville"></textarea>
                             </div>
                         </fieldset>
                         
@@ -223,12 +227,13 @@
                     </header>
                     
                     <div class="security-info">
+                        <!-- Changement mot de passe -->
                         <div class="security-item">
                             <div class="security-detail">
                                 <h3>Mot de passe</h3>
                                 <p class="text-muted">
                                     Dernière modification: 
-                                    <time datetime="2024-01-15">15 janvier 2024</time>
+                                    <time datetime="2024-01-15" id="password-last-modified">15 janvier 2024</time>
                                 </p>
                             </div>
                             <button type="button" 
@@ -238,13 +243,27 @@
                             </button>
                         </div>
                         
+                        <!-- Déconnexion -->
                         <div class="security-item">
                             <div class="security-detail">
-                                <h3>Authentification à deux facteurs</h3>
-                                <p class="text-muted">Non activée</p>
+                                <h3>Session active</h3>
+                                <p class="text-muted">Vous êtes actuellement connecté</p>
                             </div>
-                            <button type="button" class="btn btn-outline">
-                                Activer
+                            <button type="button" id="btn-deconnexion" class="btn btn-outline">
+                                🚪 Se déconnecter
+                            </button>
+                        </div>
+                        
+                        <!-- Zone de danger -->
+                        <div class="security-item danger">
+                            <div class="security-detail">
+                                <h3>Supprimer mon compte</h3>
+                                <p class="text-muted">Cette action est irréversible. Tous vos mémoriaux et données seront définitivement supprimés.</p>
+                            </div>
+                            <button type="button" 
+                                    class="btn btn-danger" 
+                                    data-confirm="delete-account">
+                                Supprimer le compte
                             </button>
                         </div>
                     </div>
@@ -257,22 +276,22 @@
                             <div class="form-group">
                                 <label for="current_password">Mot de passe actuel *</label>
                                 <input type="password" 
-                                       id="current_password" 
-                                       name="current_password" 
-                                       required
-                                       autocomplete="current-password"
-                                       class="form-control">
+                                    id="current_password" 
+                                    name="current_password" 
+                                    required
+                                    autocomplete="current-password"
+                                    class="form-control">
                             </div>
                             
                             <div class="form-group">
                                 <label for="new_password">Nouveau mot de passe *</label>
                                 <input type="password" 
-                                       id="new_password" 
-                                       name="new_password" 
-                                       required
-                                       minlength="8"
-                                       autocomplete="new-password"
-                                       class="form-control">
+                                    id="new_password" 
+                                    name="new_password" 
+                                    required
+                                    minlength="8"
+                                    autocomplete="new-password"
+                                    class="form-control">
                                 <small class="form-help">
                                     Minimum 8 caractères avec lettres, chiffres et symboles
                                 </small>
@@ -281,12 +300,12 @@
                             <div class="form-group">
                                 <label for="confirm_password">Confirmer le nouveau mot de passe *</label>
                                 <input type="password" 
-                                       id="confirm_password" 
-                                       name="confirm_password" 
-                                       required
-                                       minlength="8"
-                                       autocomplete="new-password"
-                                       class="form-control">
+                                    id="confirm_password" 
+                                    name="confirm_password" 
+                                    required
+                                    minlength="8"
+                                    autocomplete="new-password"
+                                    class="form-control">
                             </div>
                         </fieldset>
                         
@@ -300,6 +319,7 @@
                         </div>
                     </form>
                 </article>
+
 
                 <!-- Préférences -->
                 <article class="info-card">
@@ -329,10 +349,10 @@
                                     
                                     <div class="checkbox-item">
                                         <input type="checkbox" 
-                                               id="notif_memoriaux" 
-                                               name="notifications[]" 
-                                               value="memoriaux" 
-                                               checked>
+                                            id="notif_memoriaux" 
+                                            name="notifications[]" 
+                                            value="memoriaux" 
+                                            checked>
                                         <label for="notif_memoriaux">
                                             Nouveaux mémoriaux dans ma région
                                         </label>
@@ -340,9 +360,9 @@
                                     
                                     <div class="checkbox-item">
                                         <input type="checkbox" 
-                                               id="notif_anniversaires" 
-                                               name="notifications[]" 
-                                               value="anniversaires">
+                                            id="notif_anniversaires" 
+                                            name="notifications[]" 
+                                            value="anniversaires">
                                         <label for="notif_anniversaires">
                                             Anniversaires de décès
                                         </label>
@@ -350,10 +370,10 @@
                                     
                                     <div class="checkbox-item">
                                         <input type="checkbox" 
-                                               id="notif_newsletter" 
-                                               name="notifications[]" 
-                                               value="newsletter" 
-                                               checked>
+                                            id="notif_newsletter" 
+                                            name="notifications[]" 
+                                            value="newsletter" 
+                                            checked>
                                         <label for="notif_newsletter">
                                             Newsletter mensuelle
                                         </label>
@@ -367,10 +387,10 @@
                                     
                                     <div class="radio-item">
                                         <input type="radio" 
-                                               id="visibilite_publique" 
-                                               name="visibilite" 
-                                               value="publique" 
-                                               checked>
+                                            id="visibilite_publique" 
+                                            name="visibilite" 
+                                            value="publique" 
+                                            checked>
                                         <label for="visibilite_publique">
                                             <strong>Public</strong> - Visible par tous
                                         </label>
@@ -378,9 +398,9 @@
                                     
                                     <div class="radio-item">
                                         <input type="radio" 
-                                               id="visibilite_amis" 
-                                               name="visibilite" 
-                                               value="amis">
+                                            id="visibilite_amis" 
+                                            name="visibilite" 
+                                            value="amis">
                                         <label for="visibilite_amis">
                                             <strong>Amis uniquement</strong> - Visible par mes contacts
                                         </label>
@@ -388,9 +408,9 @@
                                     
                                     <div class="radio-item">
                                         <input type="radio" 
-                                               id="visibilite_prive" 
-                                               name="visibilite" 
-                                               value="prive">
+                                            id="visibilite_prive" 
+                                            name="visibilite" 
+                                            value="prive">
                                         <label for="visibilite_prive">
                                             <strong>Privé</strong> - Invisible dans les recherches
                                         </label>
@@ -422,8 +442,8 @@
                     <div class="memoriaux-preview">
                         <article class="memorial-mini">
                             <img src="assets/images/memorial-1.jpg" 
-                                 alt="Photo de Marie Dupont" 
-                                 class="memorial-photo">
+                                alt="Photo de Marie Dupont" 
+                                class="memorial-photo">
                             <div class="memorial-info">
                                 <h3>
                                     <a href="memorial-detail.html?id=1">Marie Dupont</a>
@@ -436,16 +456,16 @@
                             </div>
                             <div class="memorial-actions">
                                 <a href="modifier-memorial.html?id=1" 
-                                   class="btn btn-sm">
-                                   ✏️ Modifier
+                                class="btn btn-sm">
+                                ✏️ Modifier
                                 </a>
                             </div>
                         </article>
                         
                         <article class="memorial-mini">
                             <img src="assets/images/memorial-2.jpg" 
-                                 alt="Photo de Pierre Martin" 
-                                 class="memorial-photo">
+                                alt="Photo de Pierre Martin" 
+                                class="memorial-photo">
                             <div class="memorial-info">
                                 <h3>
                                     <a href="memorial-detail.html?id=2">Pierre Martin</a>
@@ -458,8 +478,8 @@
                             </div>
                             <div class="memorial-actions">
                                 <a href="modifier-memorial.html?id=2" 
-                                   class="btn btn-sm">
-                                   ✏️ Modifier
+                                class="btn btn-sm">
+                                ✏️ Modifier
                                 </a>
                             </div>
                         </article>
@@ -474,31 +494,11 @@
                             </a>
                         </div>
                     </div>
-                 </article>
-
-                        <!-- Zone de danger -->
-                        <div class="danger-zone">
-                        <article class="info-card danger">
-                            <header class="card-header">
-                                <h2><span class="card-icon">⚠️</span>Zone de danger</h2>
-                            </header>
-
-                            <div class="danger-content">
-                                <div class="danger-item">
-                                    <div class="danger-info">
-                                     <h3>Supprimer mon compte</h3>
-                                     <p> Cette action est irréversible. Tous vos mémoriaux et données seront définitivement supprimés.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <button type="button" 
-                                class="btn btn-danger" 
-                                data-confirm="delete-account">🗑️ Supprimer le compte
-                            </button>
-                        </article>
+                </article>
             </div>
         </section>
     </main>
+
 
     <!-- PIED DE PAGE (ton code existant) -->
     <footer class="main-footer">

@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
         let email = document.getElementById('reg-email').value;
         let motDePasse = document.getElementById('reg-password').value;
         
-        // Validations (comme avant)
+        // Validations 
         if (nom === '' || email === '' || motDePasse === '') {
             alert('Veuillez remplir tous les champs !');
             return;
@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
         
-        // NOUVELLE PARTIE - Stockage
+        // Stockage
         let utilisateur = {
             nom: nom,
             email: email,
@@ -31,6 +31,13 @@ document.addEventListener('DOMContentLoaded', function() {
         };
         
         localStorage.setItem('utilisateur', JSON.stringify(utilisateur));
+        
+        alert('Inscription réussie ! Données sauvegardées !');
+        console.log('Utilisateur créé:', utilisateur);
+
+        // Connexion automatique
+        localStorage.setItem('utilisateurConnecte', 'true');
+        window.location.href = 'profil.html';
         
         alert('Inscription réussie ! Données sauvegardées !');
         console.log('Utilisateur créé:', utilisateur);
