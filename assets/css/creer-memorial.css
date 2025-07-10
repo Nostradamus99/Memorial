@@ -350,30 +350,8 @@ main.creer-memorial-page form .form-actions {
     grid-column: 1 / -1; /* Prend toute la largeur de la grille */
 }
 
-/* Bouton submit */
-main.creer-memorial-page form button[type="submit"] {
-    grid-column: 1 / -1; /* Prend toute la largeur */
-    margin-top: 32px;
-    padding: 16px 32px;
-    font-size: 18px;
-    font-weight: 600;
-    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
-    color: white;
-    border: none;
-    border-radius: 12px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
-}
-
-main.creer-memorial-page form button[type="submit"]:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
-    background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
-}
-
 /* Bouton back */
-main.creer-memorial-page form button[type="back"] {
+.btn-thirdary {
     grid-column: 1 / -1; /* Prend toute la largeur */
     margin-top: 32px;
     padding: 16px 32px;
@@ -388,14 +366,14 @@ main.creer-memorial-page form button[type="back"] {
     box-shadow: 0 4px 12px rgba(246, 59, 59, 0.3);
 }
 
-main.creer-memorial-page form button[type="back"]:hover {
+.btn-thirdary:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(246, 59, 59, 0.4);
     background: linear-gradient(135deg, #eb2525 0%, #af1e1e 100%);
 }
 
 /* Bouton saveDraft */
-main.creer-memorial-page form button[type="saveDraft"] {
+.btn-fourthary {
     grid-column: 1 / -1; /* Prend toute la largeur */
     margin-top: 32px;
     padding: 16px 32px;
@@ -410,14 +388,14 @@ main.creer-memorial-page form button[type="saveDraft"] {
     box-shadow: 0 4px 12px rgba(84, 246, 59, 0.3);
 }
 
-main.creer-memorial-page form button[type="saveDraft"]:hover {
+.btn-fourthary:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(100, 246, 59, 0.4);
     background: linear-gradient(135deg, #28eb25 0%, #20af1e 100%);
 }
 
 /* Bouton previewMemorial */
-main.creer-memorial-page form button[type="previewMemorial"] {
+.btn-fifthary {
     grid-column: 1 / -1; /* Prend toute la largeur */
     margin-top: 32px;
     padding: 16px 32px;
@@ -432,10 +410,32 @@ main.creer-memorial-page form button[type="previewMemorial"] {
     box-shadow: 0 4px 12px rgba(242, 242, 242, 0.3);
 }
 
-main.creer-memorial-page form button[type="previewMemorial"]:hover {
+.btn-fifthary:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(246, 246, 246, 0.4);
     background: linear-gradient(135deg, #c4c4c4 0%, #bfbfbf 100%);
+}
+
+/* Bouton submit */
+.btn-sixthary {
+    grid-column: 1 / -1; /* Prend toute la largeur */
+    margin-top: 32px;
+    padding: 16px 32px;
+    font-size: 18px;
+    font-weight: 600;
+    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.btn-sixthary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+    background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
 }
 
 /* Boutons génériques */

@@ -12,83 +12,64 @@
 </head>
 
 <body>
-  <header class="header">
-    <div class="nav-container">
-     <a href= "index.html"><h1 class="logo">Memorial</h1></a>
-       <div class="nav-actions">
-            <a href="memoriaux.html">Mémoriaux</a>
-            <a href="auth.html">S'inscrire/Connexion</a>
-            <a href="profil.html">Profil</a>
-            <a href="creer-memorial.html" class="btn-primary">Créer</a>
-       </div>
-    </div>
-  </header>
-
-  <main class="memoriaux-page">
-    <!-- Zone de recherche -->
-    <section class="search-section">
-        <form class="search-form" method="get">
-            <input type="search" 
-                   name="q" 
-                   placeholder="Rechercher un mémorial..." 
-                   class="search-input">
-            <button type="submit" class="search-btn" aria-label="Rechercher">🔍</button>
-            <button type="button" 
-                    class="advanced-search-btn" 
-                    onclick="openModal()">
-                Recherche avancée
-            </button>
-        </form>
-    </section>
-
-    <!-- Liste des mémoriaux -->
-    <section class="memoriaux-grid">
-        <article class="memorial-card">
-            <figure class="memorial-photo">
-                <img src="photos/profil1.jpg" alt="Photo de Jean Dupont">
-                <figcaption>Jean Dupont</figcaption>
-            </figure>
-            <div class="memorial-info">
-                <h3>Jean Dupont</h3>
-                <p class="memorial-dates">1945 - 2023</p>
-                <p class="memorial-bio">Père aimant et grand-père dévoué...</p>
-                <a href="profil.html?id=1" class="memorial-link">Voir le mémorial</a>
+    <header class="header">
+        <div class="nav-container">
+            <a href= "index.html"><h1 class="logo">Memorial</h1></a>
+            <div class="nav-actions">
+                <button id="btn-memorials" type="button" class="btn-outline">Mémoriaux</button>
+                <button id="btn-auth" type="button" class="btn-outline">S'inscrire/Connexion</button>
+                <a href="creer-memorial.html" class="btn-primary">Créer</a>
             </div>
-        </article>
-        <article class="memorial-card">
-            <figure class="memorial-photo">
-                <img src="photos/profil1.jpg" alt="Photo de Marie Brognart">
-                <figcaption>Marie Brognart</figcaption>
-            </figure>
-            <div class="memorial-info">
-                <h3>Marie Brognart</h3>
-                <p class="memorial-dates">1935 - 2023</p>
-                <p class="memorial-bio">Mère aimante et grand-mère dévoué...</p>
-                <a href="profil.html?id=1" class="memorial-link">Voir le mémorial</a>
-            </div>
-        </article>
-    </section>
-</main>
+        </div>
+    </header>
 
-<!-- Modale de recherche avancée -->
-<dialog id="search-modal" class="modal">
-    <div class="modal-content">
-        <header class="modal-header">
-            <h2>Recherche avancée</h2>
-            <button class="modal-close" onclick="closeModal()">×</button>
-        </header>
-        <form class="advanced-search-form" method="get">
-            <div class="form-group">
-                <label for="nom">Nom du défunt</label>
-                <input type="text" id="nom" name="nom">
-            </div>
-            <!-- Autres champs... -->
-            <button type="submit">Rechercher</button>
-        </form>
-    </div>
-</dialog>
+    <main class="memoriaux-page">
+        <!-- Zone de recherche -->
+        <section class="search-section">
+            <form class="search-form" method="get">
+                <input type="search" 
+                    name="q" 
+                    placeholder="Rechercher un mémorial..." 
+                    class="search-input">
+                <button type="submit" class="search-btn" aria-label="Rechercher">🔍</button>
+                <button type="button" 
+                        class="advanced-search-btn" 
+                        onclick="openModal()">
+                    Recherche avancée
+                </button>
+            </form>
+        </section>
 
-  <!-- PIED DE PAGE (ton code existant) -->
+        <!-- Liste des mémoriaux -->
+        <section class="memoriaux-grid">
+            <article class="memorial-card">
+                <figure class="memorial-photo">
+                    <img src="photos/profil1.jpg" alt="Photo de Jean Dupont">
+                    <figcaption>Jean Dupont</figcaption>
+                </figure>
+                <div class="memorial-info">
+                    <h3>Jean Dupont</h3>
+                    <p class="memorial-dates">1945 - 2023</p>
+                    <p class="memorial-bio">Père aimant et grand-père dévoué...</p>
+                    <a href="profil.html?id=1" class="memorial-link">Voir le mémorial</a>
+                </div>
+            </article>
+            <article class="memorial-card">
+                <figure class="memorial-photo">
+                    <img src="photos/profil1.jpg" alt="Photo de Marie Brognart">
+                    <figcaption>Marie Brognart</figcaption>
+                </figure>
+                <div class="memorial-info">
+                    <h3>Marie Brognart</h3>
+                    <p class="memorial-dates">1935 - 2023</p>
+                    <p class="memorial-bio">Mère aimante et grand-mère dévoué...</p>
+                    <a href="profil.html?id=1" class="memorial-link">Voir le mémorial</a>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <!-- PIED DE PAGE (ton code existant) -->
     <footer class="main-footer">
         <div class="footer-content">
             <div class="footer-section">
@@ -128,8 +109,8 @@
             <p>&copy; 2024 Memorial. Tous droits réservés.</p>
         </div>
     </footer>
-
-  <script src="script.js"></script>
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/memoriaux.js"></script>
 </body>
 
 </html>

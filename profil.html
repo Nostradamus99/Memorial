@@ -14,15 +14,15 @@
 <body class="profil-page">
     <header class="header">
         <div class="nav-container">
-            <a href="index.html"><h1 class="logo">Memorial</h1></a>
-            <nav class="nav-actions">
-                <a href="memoriaux.html">Mémoriaux</a>
-                <a href="auth.html">S'inscrire/Connexion</a>
-                <a href="profil.html">Profil</a>
+            <a href= "index.html"><h1 class="logo">Memorial</h1></a>
+            <div class="nav-actions">
+                <button id="btn-memorials" type="button" class="btn-outline">Mémoriaux</button>
+                <button id="btn-auth" type="button" class="btn-outline">S'inscrire/Connexion</button>
                 <a href="creer-memorial.html" class="btn-primary">Créer</a>
-            </nav>
+            </div>
         </div>
     </header>
+
     <main class="main">
         <!-- Section photo de profil -->
         <section class="profil-header">
@@ -111,23 +111,23 @@
                     <div class="info-display" id="personal-display">
                         <dl class="info-list">
                             <div class="info-item">
-                                <dt>👤 Nom complet</dt>
+                                <h3>👤 Nom complet</h3>
                                 <dd type="text" id="nom-profil">Votre nom complet</dd>
                             </div>
                             <div class="info-item">
-                                <dt>📧 Email</dt>
+                                <h3>📧 Email</h3>
                                 <dd id="email-profil">Votre adresse email</dd>
                             </div>
                             <div class="info-item">
-                                <dt>📱 Téléphone</dt>
+                                <h3>📱 Téléphone</h3>
                                 <dd id="telephone-profil">Votre numéro de téléphone</dd>
                             </div>
                             <div class="info-item">
-                                <dt>🎂 Date de naissance</dt>
+                                <h3>🎂 Date de naissance</h3>
                                 <dd id="date_naissance-profil">Votre date de naissance</dd>
                             </div>
                             <div class="info-item">
-                                <dt>🏠 Adresse</dt>
+                                <h3>🏠 Adresse</h3>
                                 <dd id="adresse-profil">Votre adresse</dd>
                             </div>
                         </dl>
@@ -237,7 +237,7 @@
                                 </p>
                             </div>
                             <button type="button" 
-                                    class="btn btn-outline" 
+                                    class="btn btn-thirdary" 
                                     data-toggle="password-form">
                                 Changer
                             </button>
@@ -249,8 +249,8 @@
                                 <h3>Session active</h3>
                                 <p class="text-muted">Vous êtes actuellement connecté</p>
                             </div>
-                            <button type="button" id="btn-deconnexion" class="btn btn-outline">
-                                🚪 Se déconnecter
+                            <button type="button" id="btn-deconnexion" class="btn btn-thirdary">
+                                Se déconnecter
                             </button>
                         </div>
                         
@@ -434,7 +434,7 @@
                             <span class="card-icon">📚</span>
                             Mes derniers mémoriaux
                         </h2>
-                        <a href="mes-memoriaux.html" class="btn btn-outline">
+                        <a href="mes-memoriaux.html" class="btn btn-thirdary">
                             Voir tous (3)
                         </a>
                     </header>
@@ -542,5 +542,6 @@
     </footer>
     <script src="assets/js/script.js"></script>
     <script src="assets/js/profil.js"></script>
+    <script src="assets/js/memoriaux.js"></script>
 </body>
 </html>
