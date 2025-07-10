@@ -624,3 +624,4 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log('- Toutes les clés:', Object.keys(localStorage));
     };
 });
+

@@ -292,6 +292,19 @@
     margin-top: 3px;
 }
 
+/* Mes mémoriaux */
+.aucun-memorial {
+    text-align: center;
+    padding: 2rem;
+    color: #666;
+}
+
+.aucun-memorial p {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+
 /* --- Form Actions Buttons --- */
 .form-actions {
     margin-top: 10px;

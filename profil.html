@@ -434,65 +434,14 @@
                             <span class="card-icon">📚</span>
                             Mes derniers mémoriaux
                         </h2>
-                        <a href="mes-memoriaux.html" class="btn btn-thirdary">
-                            Voir tous (3)
+                        <a href="mes-memoriaux.html" class="btn btn-thirdary" id="voir-tous-btn">
+                            Voir tous (<span id="memorial-count">0</span>)
                         </a>
                     </header>
                     
-                    <div class="memoriaux-preview">
-                        <article class="memorial-mini">
-                            <img src="assets/images/memorial-1.jpg" 
-                                alt="Photo de Marie Dupont" 
-                                class="memorial-photo">
-                            <div class="memorial-info">
-                                <h3>
-                                    <a href="memorial-detail.html?id=1">Marie Dupont</a>
-                                </h3>
-                                <p class="memorial-dates">1920 - 2023</p>
-                                <p class="memorial-stats">
-                                    <span>👁️ 45 visites</span>
-                                    <span>💬 3 messages</span>
-                                </p>
-                            </div>
-                            <div class="memorial-actions">
-                                <a href="modifier-memorial.html?id=1" 
-                                class="btn btn-sm">
-                                ✏️ Modifier
-                                </a>
-                            </div>
-                        </article>
-                        
-                        <article class="memorial-mini">
-                            <img src="assets/images/memorial-2.jpg" 
-                                alt="Photo de Pierre Martin" 
-                                class="memorial-photo">
-                            <div class="memorial-info">
-                                <h3>
-                                    <a href="memorial-detail.html?id=2">Pierre Martin</a>
-                                </h3>
-                                <p class="memorial-dates">1955 - 2024</p>
-                                <p class="memorial-stats">
-                                    <span>👁️ 12 visites</span>
-                                    <span>💬 1 message</span>
-                                </p>
-                            </div>
-                            <div class="memorial-actions">
-                                <a href="modifier-memorial.html?id=2" 
-                                class="btn btn-sm">
-                                ✏️ Modifier
-                                </a>
-                            </div>
-                        </article>
-                        
-                        <!-- Message si aucun mémorial -->
-                        <div class="empty-state" hidden>
-                            <div class="empty-icon">📚</div>
-                            <h3>Aucun mémorial créé</h3>
-                            <p>Commencez par créer votre premier mémorial</p>
-                            <a href="creer-memorial.html" class="btn btn-primary">
-                                ➕ Créer un mémorial
-                            </a>
-                        </div>
+                    <!-- Conteneur qui sera rempli par JavaScript -->
+                    <div class="memorial-preview" id="memorial-container">
+                        <!-- Les mémoriaux seront ajoutés ici par JavaScript -->
                     </div>
                 </article>
             </div>
@@ -542,6 +491,7 @@
     </footer>
     <script src="assets/js/script.js"></script>
     <script src="assets/js/profil.js"></script>
-    <script src="assets/js/memoriaux.js"></script>
+    <script src="assets/js/memorial-storage.js"></script>
+    <script src="assets/js/affichage-memorial.js"></script>
 </body>
 </html>
