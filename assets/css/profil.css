@@ -312,7 +312,7 @@
     gap: 16px;
 }
 
-.btn, .btn-primary, .btn-thirdary, .btn-secondary {
+.btn, .btn-thirdary, .btn-secondary {
     border-radius: 6px;
     padding: 9px 18px;
     font-size: 1rem;
@@ -322,14 +322,7 @@
     font-weight: 500;
     text-decoration: none;
 }
-.btn-primary {
-    background: #2962ff;
-    color: #fff;
-    border: 1px solid #2962ff;
-}
-.btn-primary:hover {
-    background: #1743ad;
-}
+
 .btn-thirdary {
     background: #fff;
     color: #2962ff;
