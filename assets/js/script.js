@@ -158,15 +158,34 @@ function afficherMemoriaux() {
     
     // Afficher les mémoriaux (les 3 derniers)
     const derniersMemoriaux = memoriaux.slice(-3);
-    
+
     derniersMemoriaux.forEach(memorial => {
         const div = document.createElement('div');
         div.className = 'memorial-item';
+        
+        // Déterminer le statut et la classe CSS
+        let statutTexte = '';
+        let statutClasse = '';
+        
+        if (memorial.statut === 'brouillon') {
+            statutTexte = '📝 Brouillon';
+            statutClasse = 'statut-brouillon';
+        } else if (memorial.statut === 'publie') {
+            if (memorial.public === true) {
+                statutTexte = '🌍 Public';
+                statutClasse = 'statut-public';
+            } else {
+                statutTexte = '🔒 Privé';
+                statutClasse = 'statut-prive';
+            }
+        }
+        
         div.innerHTML = `
             <div class="memorial-preview-card">
-                <h3>${memorial.nom || 'Mémorial sans nom'}</h3>
-                <p><strong>Créé le :</strong> ${memorial.dateCreation}</p>
-                ${memorial.dateModification ? `<p><strong>Modifié le :</strong> ${memorial.dateModification}</p>` : ''}
+                <div class="memorial-header">
+                    <h3>${memorial.nom || 'Mémorial sans nom'}</h3>
+                    <span class="memorial-statut ${statutClasse}">${statutTexte}</span>
+                </div>
                 <div class="memorial-actions">
                     <button onclick="chargerPourModification(${memorial.id})" class="btn btn-secondary">
                         ✏️ Modifier
@@ -179,6 +198,7 @@ function afficherMemoriaux() {
         `;
         container.appendChild(div);
     });
+
 }
 
 // ✏️ Fonction pour charger un mémorial pour modification
@@ -256,4 +276,165 @@ document.addEventListener('DOMContentLoaded', function() {
         
         window.location.href = 'profil.html';
     });
+});
+
+// ==========================================
+// 📤 SYSTÈME DE PUBLICATION
+// ==========================================
+
+// Fonction pour publier un mémorial
+function publierMemorial(memorialId) {
+    const memoriaux = JSON.parse(localStorage.getItem('memoriaux') || '[]');
+    const memorial = memoriaux.find(m => m.id === memorialId);
+    
+    if (!memorial) {
+        alert('Mémorial non trouvé');
+        return;
+    }
+    
+    // Récupérer l'état de la checkbox
+    const checkboxPublic = document.getElementById('memorial-public');
+    const estPublic = checkboxPublic ? checkboxPublic.checked : false;
+    
+    // Mettre à jour le statut
+    memorial.statut = 'publie';
+    memorial.public = estPublic;
+    memorial.datePublication = new Date().toISOString();
+    
+    // Sauvegarder
+    localStorage.setItem('memoriaux', JSON.stringify(memoriaux));
+    
+    alert(`Mémorial publié avec succès !`);
+    
+    // TODO: Redirection vers la page du mémorial
+    // window.location.href = `memorial-${memorialId}.html`;
+}
+
+// Event listeners pour les boutons publier
+document.addEventListener('DOMContentLoaded', function() {
+    // Bouton publier création
+    const btnPublierCreer = document.getElementById('btn-publier-creer');
+    if (btnPublierCreer) {
+        btnPublierCreer.addEventListener('click', function() {
+            // Récupérer et sauvegarder les données du formulaire
+            const donneesFormulaire = recupererDonneesFormulaire();
+            
+            // Créer un nouvel ID
+            const memorialId = Date.now();
+            donneesFormulaire.id = memorialId;
+            donneesFormulaire.statut = 'brouillon'; // D'abord en brouillon
+            
+            // Sauvegarder le mémorial
+            const memoriaux = JSON.parse(localStorage.getItem('memoriaux') || '[]');
+            memoriaux.push(donneesFormulaire);
+            localStorage.setItem('memoriaux', JSON.stringify(memoriaux));
+            
+            // Puis publier
+            publierMemorial(memorialId);
+        });
+    }
+    
+    // Bouton publier modification
+    const btnPublierModifier = document.getElementById('btn-publier-modifier');
+    if (btnPublierModifier) {
+        btnPublierModifier.addEventListener('click', function() {
+            // Récupérer l'ID depuis l'URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const memorialId = parseInt(urlParams.get('id'));
+            
+            if (memorialId) {
+                // Récupérer et sauvegarder les modifications
+                const donneesFormulaire = recupererDonneesFormulaire();
+                
+                const memoriaux = JSON.parse(localStorage.getItem('memoriaux') || '[]');
+                const index = memoriaux.findIndex(m => m.id === memorialId);
+                
+                if (index !== -1) {
+                    // Conserver l'ID et mettre à jour les données
+                    donneesFormulaire.id = memorialId;
+                    memoriaux[index] = donneesFormulaire;
+                    localStorage.setItem('memoriaux', JSON.stringify(memoriaux));
+                    
+                    // Puis publier
+                    publierMemorial(memorialId);
+                } else {
+                    alert('Mémorial non trouvé');
+                }
+            }
+        });
+    }
+});
+
+// 📋 AFFICHAGE DES MÉMORIAUX PUBLICS
+// ==========================================
+
+// Fonction pour afficher les mémoriaux publics
+function afficherMemoriauxPublics() {
+    const container = document.getElementById('memoriaux-publics');
+    if (!container) return;
+    
+    const memoriaux = JSON.parse(localStorage.getItem('memoriaux') || '[]');
+    
+    // Filtrer les mémoriaux publics uniquement
+    const memoriauxPublics = memoriaux.filter(memorial => 
+        memorial.statut === 'publie' && memorial.public === true
+    );
+    
+    // Vider le conteneur
+    container.innerHTML = '';
+    
+    // Si aucun mémorial public
+    if (memoriauxPublics.length === 0) {
+        container.innerHTML = '<p class="no-memoriaux">Aucun mémorial public pour le moment.</p>';
+        return;
+    }
+    
+    // Créer les cartes pour chaque mémorial
+    memoriauxPublics.forEach(memorial => {
+        const card = creerCarteMemorial(memorial);
+        container.appendChild(card);
+    });
+}
+
+// Fonction pour créer une carte mémorial
+function creerCarteMemorial(memorial) {
+    const article = document.createElement('article');
+    article.className = 'memorial-card';
+    
+    // Construire les dates
+    const dateNaissance = memorial.dateNaissance || '';
+    const dateDeces = memorial.dateDeces || '';
+    const dates = dateNaissance && dateDeces ? `${dateNaissance} - ${dateDeces}` : 
+                  dateNaissance ? `Né(e) en ${dateNaissance}` :
+                  dateDeces ? `Décédé(e) en ${dateDeces}` : '';
+    
+    // Construire la bio (extrait)
+    const bio = memorial.biographie || memorial.histoire || 'Aucune biographie disponible.';
+    const bioExtrait = bio.length > 100 ? bio.substring(0, 100) + '...' : bio;
+    
+    // Photo (à adapter selon tes besoins)
+    const photoSrc = memorial.photo || 'photos/default-profile.jpg';
+    
+    article.innerHTML = `
+        <figure class="memorial-photo">
+            <img src="${photoSrc}" alt="Photo de ${memorial.prenom || ''} ${memorial.nom || ''}">
+            <figcaption>${memorial.prenom || ''} ${memorial.nom || ''}</figcaption>
+        </figure>
+        <div class="memorial-info">
+            <h3>${memorial.prenom || ''} ${memorial.nom || ''}</h3>
+            <p class="memorial-dates">${dates}</p>
+            <p class="memorial-bio">${bioExtrait}</p>
+            <a href="memorial-${memorial.id}.html" class="memorial-link">Voir le mémorial</a>
+        </div>
+    `;
+    
+    return article;
+}
+
+// Charger les mémoriaux au chargement de la page memoriaux.html
+document.addEventListener('DOMContentLoaded', function() {
+    // Vérifier si on est sur la page memoriaux.html
+    if (document.getElementById('memoriaux-publics')) {
+        afficherMemoriauxPublics();
+    }
 });
